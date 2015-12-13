@@ -30,5 +30,6 @@
         python app.py
 
 
+Now, just access localhost:8080 =D
 
 This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
