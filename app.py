@@ -7,10 +7,11 @@ import code
 
 from io import BytesIO, StringIO
 from tornado import ioloop, web, template, gen
+from tornado.concurrent import return_future
 
 
-@gen.coroutine
-def _eval(request):
+@return_future
+def _eval(request, callback):
     ns = {}
     to_eval = json.loads(request.body.decode('utf-8'))['toEval']
     out, err = sys.stdout, sys.stderr
@@ -26,9 +27,9 @@ def _eval(request):
 
     out_result, err_result = fake_stdout.getvalue(), fake_stderr.getvalue()
 
-    return {"out": out_result,
-            "err": err_result
-            }
+    callback({"out": out_result,
+        "err": err_result
+        })
 
 
 loader = template.Loader('templates')
