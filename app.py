@@ -5,15 +5,15 @@ import json
 import sys
 import code
 
-from io import BytesIO
+from io import BytesIO, StringIO
 from tornado import ioloop, web, template, gen
 
 @gen.coroutine
 def _eval(request):
     ns = {}
-    to_eval = json.loads(request.body)['toEval']
+    to_eval = json.loads(request.body.decode('utf-8'))['toEval']
     out, err = sys.stdout, sys.stderr
-    fake_stdout, fake_stderr = BytesIO(), BytesIO()
+    fake_stdout, fake_stderr = StringIO(), StringIO()
     sys.stdout, sys.stderr = fake_stdout, fake_stderr
     console = code.InteractiveConsole(locals=ns)
     for statement in to_eval.split("\n"):
