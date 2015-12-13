@@ -1,0 +1,76 @@
+body {
+  background: #f7f7f7;
+  font-family: 'Merriweather';
+}
+
+.try-haskell {
+  padding-left: 0.5em;
+  color: #4F4371;
+  text-shadow: 1px 1px 1px #ffffff;
+  font-size: 3em;
+}
+/* Console */
+.console {
+  background: #fff;
+  padding: 2em 0 2em 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+#console {
+  font-family: "ubuntu mono",monospace;
+    font-size: 22px;
+
+}
+.jquery-console-nofocus {
+  opacity: 0.8;
+}
+.jquery-console-focus .jquery-console-cursor {
+  background:#aaa;
+  color:#eee
+  font-weight:bold
+}
+.jquery-console-inner {
+  height: 20em;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.jquery-console-prompt, .jquery-console-message{
+    font-size: 22px;
+}
+.jquery-console-prompt-label {
+  color: #16a085;
+  font-weight: bold;
+  font-size: 24px;
+}
+.jquery-console-error {
+  color: #c0392b;
+}
+.jquery-console-value {
+  color: #2e659c;
+}
+.jquery-console-stdout {
+  color: #216f42;
+}
+.jquery-console-type {
+  color: #777;
+}
+.jquery-console-welcome {
+  color: #888;
+  margin-bottom: 0.5em;
+}
+/* Footer */
+footer {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#guide h3 {
+  margin-top: 0;
+}
+#guide .spoiler {
+  color: #f7f7f9;
+  background: #f7f7f9;
+}
+#guide .spoiler:hover {
+  color: #d14;
+}
