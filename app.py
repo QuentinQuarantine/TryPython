@@ -28,8 +28,8 @@ def _eval(request, callback):
     out_result, err_result = fake_stdout.getvalue(), fake_stderr.getvalue()
 
     callback({"out": out_result,
-        "err": err_result
-        })
+              "err": err_result
+              })
 
 
 loader = template.Loader('templates')
