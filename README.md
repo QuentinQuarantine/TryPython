@@ -1,7 +1,7 @@
 # Try python is a project inspired by [try-haskell](tryhaskell.org)
 
 
-[!try-python.gif]
+![try-python.gif]
 ##### The goal of this project is to introduce python for new people by let they use a python REPL( Read, Eval, Print, Loop) in the browser.
 
 ## Getting Started
