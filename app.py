@@ -8,6 +8,7 @@ import code
 from io import BytesIO, StringIO
 from tornado import ioloop, web, template, gen
 
+
 @gen.coroutine
 def _eval(request):
     ns = {}
@@ -26,13 +27,15 @@ def _eval(request):
     out_result, err_result = fake_stdout.getvalue(), fake_stderr.getvalue()
 
     return {"out": out_result,
-           "err": err_result
-           }
+            "err": err_result
+            }
 
 
 loader = template.Loader('templates')
 
+
 class MainHandler(web.RequestHandler):
+
     def get(self):
         self.write(loader.load("main.html").generate())
 
