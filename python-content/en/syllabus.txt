@@ -1,0 +1,109 @@
+1 - Variables and input data
+	3.1 Variable names
+	3.2 Numeric variables
+		3.2.1 Numeric values represntation
+	3.3 Logic type variables
+		3.3.1 Relational operators
+		3.3.2 Logical operators
+		3.3.3 Logical expressions
+	3.4 String variables
+		3.4.1 Operaions with trings
+	3.5 Sequencies and time
+	3.6 Traceability
+	3.7 Data input
+		3.7.1 Data input conversion
+		3.7.2 Common errors
+
+2 - Conditions
+	4.1 if
+	4.2 else
+	4.3 Nested structures
+	4.4 elif
+
+3 - Repetitions
+	5.1 Counters
+	5.2 Acuumulators
+	5.3 Breaking a repetition
+	5.4 Nested repetitions
+
+4 - Lists
+	6.1 Working with indexes
+	6.2 Copying and slicing lists
+	6.3 Size of lists
+	6.4 Adding elements
+	6.5 Removing elements from lists
+	6.6 Using lists as queues
+	6.7 Using lists as stacks
+	6.9 Research
+	6.10 Range
+	6.11 Enumerate
+	6.12 Operations with lists
+	6.13 Applications
+	6.14 Lists with strings
+	6.15 Lists inside lists
+	6.16 Ordering
+	6.17 Dictionaries
+	6.18 Dictionaries with lists
+
+5 - Working with strings
+	7.1 Partial verification of strings
+	7.2 Counting
+	7.3 Strings research
+	7.4 Positioning of strings
+	7.5 Breaking or separating strings
+	7.6 Replacing strings
+	7.7 Removing blank spaces
+	7.8 Validating by content type
+	7.9 Formatting strings
+		7.9.1 Formatting numbers
+	7.10 Hangman game
+
+6 - Functions
+	8.1 Local and global variables
+	8.2 Recursive functions
+	8.3 Validation
+	8.4 Optional arguments
+	8.5 Naming parameters
+	8.6 Functions as arguments
+	8.7 Packing and unpaking arguments
+	8.8 Unpacking arguments
+	8.9 Lambda functions
+	8.10 Modules
+	8.11 Random numbers
+	8.12 The type function
+
+7 - Files
+	9.1 Command line arguments
+	9.2 Generating files
+	9.3 Reading and writing
+	9.4 Processing a file
+	9.5 Generating HTML
+	9.6 Files and directories
+	9.7 Something about time
+	9.8 Using paths
+	9.9 Visiting every directory recursively
+
+8 - Classes and objects
+	10.1 Objects as a representation of the real world
+	10.2 Passing arguments
+	10.3 Bank example
+	10.4 Inheritance
+
+9 - Next steps
+	11.1 Functional programming
+	11.2 Algorithms
+	11.3 Games
+	11.4 Object orientation
+	11.5 Database
+	11.6 Web systems
+	11.7 Other Python libraries
+	11.8 Discussion lists
+
+Appendix A - Error messages
+	A.1 SyntaxError
+	A.2 IdentationError
+	A.3 KeyError
+	A.4 NameError
+	A.5 ValueError
+	A.6 TypeError
+	A.7 IndexError
