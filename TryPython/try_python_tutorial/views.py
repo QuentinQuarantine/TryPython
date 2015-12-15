@@ -10,18 +10,19 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
+
 class IndexView(TemplateView):
-	template_name = "main.html"
+    template_name = "main.html"
 
 
 class EvalResponseView(View):
 
-	def post(self, request):
-		to_eval = json.loads(self.request.body.decode('utf-8'))['toEval']
-		try:
-			out = StringIO()
-			call_command("evalcommand", to_eval, stdout=out)
-			out, err = out.getvalue().split("}##{")
-			return JsonResponse({'out':  out, 'err': err})
-		except subprocess.CalledProcessError as err:
-			raise err
+    def post(self, request):
+        to_eval = json.loads(self.request.body.decode('utf-8'))['toEval']
+        try:
+            out = StringIO()
+            call_command("evalcommand", to_eval, stdout=out)
+            out, err = out.getvalue().split("}##{")
+            return JsonResponse({'out':  out, 'err': err})
+        except subprocess.CalledProcessError as err:
+            raise err

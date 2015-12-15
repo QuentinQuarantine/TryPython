@@ -26,7 +26,6 @@ class AcquireStdOutAndStdErr(object):
         sys.stderr = AcquireStdOutAndStdErr.original_stderr
 
 
-
 def _eval(to_eval):
     ns = {'__builtins__': []}
     console = code.InteractiveConsole(locals=ns)
@@ -39,10 +38,11 @@ def _eval(to_eval):
             else:
                 console.push(u'\n')
 
-    out_result, err_result = AcquireStdOutAndStdErr.fake_stdout.getvalue(), AcquireStdOutAndStdErr.fake_stderr.getvalue()
+    out_result, err_result = AcquireStdOutAndStdErr.fake_stdout.getvalue(
+    ), AcquireStdOutAndStdErr.fake_stderr.getvalue()
 
     return out_result + '}##{' + err_result
 
 if __name__ == "__main__":
     to_eval = sys.argv[1]
-    print _eval(to_eval)  
+    print _eval(to_eval)
