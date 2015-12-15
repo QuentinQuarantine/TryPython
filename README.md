@@ -17,7 +17,7 @@
  
         sudo pip install virtualenv
 
-* Create a virtualenv with python 3.4:
+* Create a virtualenv:
  
         virtualenv venv
         source venv/bin/activate
@@ -28,8 +28,8 @@
         
 * Run
         
-     cd TryPython
-     ./manage.py runserver 8000
+        cd TryPython
+        ./manage.py runserver 8000
 
 
 Now, just access localhost:8000 =D
