@@ -4,7 +4,8 @@
   <title>Python Console</title>
   <meta name="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"/>
-  <link rel="stylesheet" type="text/css" href="static/css/try_python.css"/>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/try_python.css" %}"/>
 </head>
 <body>
 <div class="container">
@@ -25,7 +26,7 @@
   </div>
 </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="static/js/jquery.console.js"></script>
-  <script type="text/javascript" src="static/js/python_console.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.console.js"></script>
+  <script type="text/javascript" src="/static/js/python_console.js"></script>
 </body>
 </html>

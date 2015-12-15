@@ -16,7 +16,8 @@ var controller2 = console2.console({
     return true;
  },
  commandHandle:function(line, report){
-    console.log(line);
+    if (!get_last_statement(line))
+      line += '\n';
     if (controller2.continuedPrompt){
         var last_statement = get_last_statement(line);
         if (last_statement.trim()){
@@ -26,7 +27,10 @@ var controller2 = console2.console({
                 multiple_statements += '\n' + last_statement;
             }
             return;
+        }else{
+          return
         }
+
     }
     if (line.endsWith(":")){
       controller2.continuedPrompt = true;
@@ -40,7 +44,7 @@ var controller2 = console2.console({
         multiple_statements = "";
      }
      $.ajax({
-        url: 'http://localhost:8080/eval',
+        url: 'http://localhost:8000/eval',
         dataType: 'json',
         type: 'POST',
         data: JSON.stringify({toEval: line}),
@@ -50,27 +54,29 @@ var controller2 = console2.console({
           var err = result.err;
           console.log("out: " + out);
           console.log("error: " + err);
-          if (err){
+          
+          if (out.trim()){
+            out = out.split("\n");
+            for (var l in out){
+              line_out = out[l];
+              if (line_out.trim()){  
+                msgs.push({msg:" " + line_out,
+                          className: "jquery-console-message-value"
+                          });
+              }
+            }
+            report(msgs);
+          }else{
             report([
                 {msg: err,
                 className: "jquery-console-error"
                 }]);
-                return;
-          }
-
-          out = out.split("\n");
-          for (var l in out){
-            line_out = out[l];
-            if (line_out.trim()){  
-              msgs.push({msg:" " + line_out,
-                        className: "jquery-console-message-value"
-                        });
+            return;
             }
           }
-          report(msgs);
-        }
       });
  },
- welcomeMessage:'Welcome to python interactive web console.'
+ welcomeMessage: 'Welcome to python interactive web console.',
+ autofocus: true
 });
 });
