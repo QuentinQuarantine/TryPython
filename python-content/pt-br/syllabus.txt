@@ -1,0 +1,109 @@
+1 - Variáveis e entrada de dados
+	3.1 Nomes de variáveis
+	3.2 Variáveis numéricas
+		3.2.1 Representação de valores numéricos
+	3.3 Variáveis do tipo lógico
+		3.3.1 Operadores relacionais
+		3.3.2 Operadores lógicos
+		3.3.3 Expressões lógicas
+	3.4 Variáveis string
+		3.4.1 Operações com strings
+	3.5 Sequências e tempo
+	3.6 Rastreamento
+	3.7 Entrada de dados
+		3.7.1 Conversão da entrada de dados
+		3.7.2 Erros comuns
+
+2 - Condições
+	4.1 if
+	4.2 else
+	4.3 Estruturas aninhadas
+	4.4 elif
+
+3 - Repetições
+	5.1 Contadores
+	5.2 Acumuladores
+	5.3 Interrompendo a repetição
+	5.4 Repetições aninhadas
+
+4 - Listas
+	6.1 Trabalhando com índices
+	6.2 Cópia e fatiamento de listas
+	6.3 Tamanho de listas
+	6.4 Adição de elementos
+	6.5 Remoção de elementos da lista
+	6.6 Usando listas como filas
+	6.7 Uso de listas como pilhas
+	6.9 Pesquisa
+	6.10 Range
+	6.11 Enumerate
+	6.12 Operações com listas
+	6.13 Aplicações
+	6.14 Listas com Strings
+	6.15 Listas dentro de listas
+	6.16 Ordenação
+	6.17 Dicionários
+	6.18 Dicionários com listas
+
+5 - Trabalhando com strings
+	7.1 Verificação parcial de strings
+	7.2 Contagem
+	7.3 Pesquisa de strings
+	7.4 Posicionamento de strings
+	7.5 Quebra ou separação de strings
+	7.6 Substituição de strings
+	7.7 Remoção de espaços em branco
+	7.8 Validação por tipo de conteúdo
+	7.9 Formatação de strings
+		7.9.1 Formatação de números
+	7.10 Jogo da forca
+
+6 - Funções
+	8.1 Variáveis locais e globais
+	8.2 Funções recursivas
+	8.3 Validação
+	8.4 Parâmetros opcionais
+	8.5 Nomeando parâmetros
+	8.6 Funções como parâmetro
+	8.7 Empacotamento e desempacotamento de parâmetros
+	8.8 Desempacotamento de parâmetros
+	8.9 Funções Lambda
+	8.10 Módulos
+	8.11 Números aleatórios
+	8.12 A função type
+
+7 - Arquivos
+	9.1 Parâmetros da linha de comando
+	9.2 Geração de arquivos
+	9.3 Leitura e escrita
+	9.4 Processamento de um arquivo
+	9.5 Geração de HTML
+	9.6 Arquivos e diretórios
+	9.7 Um pouco sobre o tempo
+	9.8 Uso de caminhos
+	9.9 Visita a todos os subdiretórios recursivamente
+
+8 - Clases e objetos
+	10.1 Objetos como representação do mundo real
+	10.2 Passagem de parâmetros
+	10.3 O exemplo de um banco
+	10.4 Herança
+
+9 - Próximos passos
+	11.1 Programação funcional
+	11.2 Algoritmos
+	11.3 Jogos
+	11.4 Orientação a objetos
+	11.5 Banco de dados
+	11.6 Sistemas web
+	11.7 Outras bibliotecas Python
+	11.8 Listas de discussão
+
+Apêndice A - Mensagens de erro
+	A.1 SyntaxError
+	A.2 IdentationError
+	A.3 KeyError
+	A.4 NameError
+	A.5 ValueError
+	A.6 TypeError
+	A.7 IndexError
