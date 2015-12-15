@@ -7,9 +7,9 @@ var get_last_statement = function(line){
 
 $(document).ready(function(){
          
-var console2 = $('<div class="container">');
-$('body').append(console2);
-var controller2 = console2.console({
+var console_ = $('<div class="console">');
+$('body').append(console_);
+var controller2 = console_.console({
  promptLabel: '>>> ',
  continuedPromptLabel: '...\t',
  commandValidate:function(line){

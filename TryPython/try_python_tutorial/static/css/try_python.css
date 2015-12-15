@@ -2,17 +2,80 @@ body {
   background: #f7f7f7;
   font-family: 'Merriweather';
 }
-
-.try-haskell {
-  padding-left: 0.5em;
-  color: #4F4371;
-  text-shadow: 1px 1px 1px #ffffff;
-  font-size: 3em;
+.container{
+  height: 125px;
 }
+.logo{
+  text-align: left;
+  float: left;
+}
+
+.header-text{
+  margin-top: 42px;
+  color: #95A5A6;
+  font-family: "ubuntu mono",monospace;
+}
+
+.right{
+  float: right;
+}
+
+/* github fork icon */
+.ribbon-wrap {
+  position: absolute;
+  left: 46px;
+  top: 49px;
+  width: 245px;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  border-color: #a00;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid #a00;
+  box-shadow: 0px 6px 5px -5px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.ribbon-wrap.right {
+  left: inherit;
+  right: -68px;
+  top: 19px;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.ribbon-wrap .trap-ribbon {
+  position: absolute;
+  left: 31px;
+  top: 2px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.7);
+  width: 100%;
+  text-align: center;
+}
+.ribbon-wrap .trap-ribbon a {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d8d8d8;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 22px;
+  display: inline-block;
+  border-top: 1px dotted rgba(255, 255, 255, 0.7);
+  transition: color 500ms ease;
+}
+.ribbon-wrap .trap-ribbon a:hover {
+  color: #fff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.85);
+}
+
+/* github fork icon */
+
 /* Console */
 .console {
   background: #fff;
-  padding: 2em 0 2em 0;
+  padding: 0 0 2em 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
@@ -58,19 +121,4 @@ body {
 .jquery-console-welcome {
   color: #888;
   margin-bottom: 0.5em;
-}
-/* Footer */
-footer {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-#guide h3 {
-  margin-top: 0;
-}
-#guide .spoiler {
-  color: #f7f7f9;
-  background: #f7f7f9;
-}
-#guide .spoiler:hover {
-  color: #d14;
 }
