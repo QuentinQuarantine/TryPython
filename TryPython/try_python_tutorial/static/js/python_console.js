@@ -44,7 +44,7 @@ var controller2 = console2.console({
         multiple_statements = "";
      }
      $.ajax({
-        url: 'http://localhost:8000/eval',
+        url: '/eval',
         dataType: 'json',
         type: 'POST',
         data: JSON.stringify({toEval: line}),

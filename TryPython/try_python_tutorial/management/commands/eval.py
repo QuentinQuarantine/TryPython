@@ -27,7 +27,7 @@ class Command(BaseCommand):
         parser.add_argument("--eval-script",
                             dest="eval_script",
                             type=str,
-                            default=None,
+                            default=settings.BASE_DIR + '/eval.py',
                             help="""
 				Python script to eval the expression
 				"""

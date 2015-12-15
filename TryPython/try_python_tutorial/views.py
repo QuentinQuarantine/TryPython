@@ -21,7 +21,7 @@ class EvalResponseView(View):
         to_eval = json.loads(self.request.body.decode('utf-8'))['toEval']
         try:
             out = StringIO()
-            call_command("evalcommand", to_eval, stdout=out)
+            call_command("eval", to_eval, stdout=out)
             out, err = out.getvalue().split("}##{")
             return JsonResponse({'out':  out, 'err': err})
         except subprocess.CalledProcessError as err:
