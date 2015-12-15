@@ -6,19 +6,20 @@
 
 ## Getting Started
 
-* Install python 3.4 on your system
+* Install python 2.x on your system
 *  Install git
 * Clone this repository
-* 
-        git clone <repo>
-        cd repo
+ 
+        git clone git@github.com:IuryAlves/TryPython.git
+        cd TryPython
+
 * Install python virtualenv: 
  
         sudo pip install virtualenv
 
 * Create a virtualenv with python 3.4:
  
-        virtualenv venv --python=python3.4
+        virtualenv venv
         source venv/bin/activate
 
 * Install project dependencies:
@@ -27,9 +28,17 @@
         
 * Run
         
-        python app.py
+     cd TryPython
+     ./manage.py runserver 8000
 
 
-Now, just access localhost:8080 =D
+Now, just access localhost:8000 =D
+
+## And now?
+
+There are a lot of things to do.
+
+* You can check the issues of the project to know in what you can contribute
+* You can access the wiki to know how run this using pypy in a sandbox and also discover how the security against malicious users are implemented.
 
 This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
