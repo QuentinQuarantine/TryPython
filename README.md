@@ -29,6 +29,7 @@
 * Run
         
      cd TryPython
+
      ./manage.py runserver 8000
 
 
