@@ -16,8 +16,7 @@ var controller2 = console_.console({
     return true;
  },
  commandHandle:function(line, report){
-    if (!get_last_statement(line))
-      line += '\n';
+   
     if (controller2.continuedPrompt){
         var last_statement = get_last_statement(line);
         if (last_statement.trim()){
@@ -27,8 +26,6 @@ var controller2 = console_.console({
                 multiple_statements += '\n' + last_statement;
             }
             return;
-        }else{
-          return
         }
 
     }
