@@ -34,10 +34,10 @@ def _eval(to_eval):
             else:
                 console.push(u'\n')
 
-    out_result, err_result = AcquireStdOutAndStdErr.fake_stdout.getvalue(
-    ), AcquireStdOutAndStdErr.fake_stderr.getvalue()
+    out = AcquireStdOutAndStdErr.fake_stdout.getvalue()
+    err = AcquireStdOutAndStdErr.fake_stderr.getvalue()
 
-    return out_result + '}##{' + err_result
+    return out + '}##{' + err
 
 if __name__ == "__main__":
     to_eval = sys.argv[1]
