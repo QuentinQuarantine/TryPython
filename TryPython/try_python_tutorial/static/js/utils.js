@@ -2,24 +2,14 @@ var ajax = (function(){
 
     var api = {};
 
-    api.getCookie = function(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie != '') {
-            var cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
+    var getCsrfToken = function(name){
+        var csrf_element = document.getElementsByName(name)[0];
+        return csrf_element.value;
     };
 
+
     api.initAjax = function(jquery){
-        csrftoken = api.getCookie('csrftoken');
+        csrftoken = getCsrfToken('csrfmiddlewaretoken');
 
         jquery.ajaxSetup({
             beforeSend: function(xhr, settings) {
@@ -31,7 +21,7 @@ var ajax = (function(){
     };
 
     api.ajax = function(jquery, url, data, callback){
-        data.csrfmiddlewaretoken = api.getCookie('csrftoken');
+        data.csrfmiddlewaretoken = getCsrfToken('csrfmiddlewaretoken');
         jquery.ajax({
         url: url,
         dataType: 'json',
