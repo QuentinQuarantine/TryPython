@@ -27,7 +27,7 @@
         pip install -r requirements.txt
         
 * Run
-        
+        export DJANGO_SECRET_KEY=<your-secret-key> 
         cd TryPython
         ./manage.py runserver 8000
 
