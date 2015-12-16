@@ -1,8 +1,10 @@
 var multiple_statements = "";
 
+ajax.initAjax($);
+
 var get_last_statement = function(line){
     var splited_line = line.split("\n");
-    return splited_line[splited_line.length -1];
+    return splited_line[splited_line.length -1];  
 };
 
 $(document).ready(function(){
@@ -40,13 +42,9 @@ var controller2 = console_.console({
         line = multiple_statements + '\n';
         multiple_statements = "";
      }
-     $.ajax({
-        url: '/eval',
-        dataType: 'json',
-        type: 'POST',
-        data: JSON.stringify({toEval: line}),
-        success: function(result){
-          var msgs = [];
+
+     ajax.ajax($, "/eval", {toEval: line}, function(result){
+        var msgs = [];
           var out = result.out;
           var err = result.err;
           console.log("out: " + out);
@@ -65,13 +63,11 @@ var controller2 = console_.console({
             report(msgs);
           }else{
             report([
-                {msg: err,
-                className: "jquery-console-error"
-                }]);
+              {msg: err,className: "jquery-console-error"}
+              ]);
             return;
-            }
           }
-      });
+     });
  },
  welcomeMessage: 'Welcome to python interactive web console.',
  autofocus: true
