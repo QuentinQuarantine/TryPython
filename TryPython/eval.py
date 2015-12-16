@@ -6,9 +6,6 @@ import code
 from io import BytesIO, StringIO
 
 
-def get_eval_command(python_exe, project_path, eval_file=__file__):
-    return [python_exe, project_path, eval_file]
-
 
 class AcquireStdOutAndStdErr(object):
 

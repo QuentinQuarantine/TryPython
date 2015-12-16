@@ -62,14 +62,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         python = kwargs.get("python")
-        # '/home/yori/Downloads/pypy-4.0.1-src/pypy/sandbox/pypy_interact.py'
         pypy_interact = kwargs.get("pypy_interact")
-
-        # '--tmp=/home/yori/projects/try-python/TryPython/'
         tmp_folder = kwargs.get("tmp_folder")
-        # '/home/yori/Downloads/pypy-4.0.1-src/pypy/goal/pypy-c'
         pypy_c = kwargs.get("pypy_c")
-        eval_script = kwargs.get("eval_script")  # '/tmp/eval.py'
+        eval_script = kwargs.get("eval_script")
         expression = kwargs.get("expression")
 
         command = [python]
