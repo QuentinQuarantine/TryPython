@@ -6,7 +6,6 @@ import code
 from io import BytesIO, StringIO
 
 
-
 class AcquireStdOutAndStdErr(object):
 
     original_stdout = sys.stdout
