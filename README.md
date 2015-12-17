@@ -37,7 +37,20 @@
 
 Now, just access localhost:8000 =D
 
-## And now?
+## Contributing
+
+ * Install nodejs
+ 
+ 
+        npm install  # on project root path
+
+* Run js tests and lint
+
+
+        npm test
+    
+This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
+
 
 There are a lot of things to do.
 
