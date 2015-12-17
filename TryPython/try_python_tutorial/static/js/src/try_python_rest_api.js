@@ -1,8 +1,8 @@
-var try_python_rest_api = (function(){
+var try_python_rest_api = (function() {
 
 
     // private 
-    var _getCsrfToken = function(name){
+    var _getCsrfToken = function(name) {
         var csrf_element = document.getElementsByName(name)[0];
         return csrf_element.value;
     };
@@ -10,7 +10,7 @@ var try_python_rest_api = (function(){
     // public 
     var api = {};
 
-    api.init = function(jquery){
+    api.init = function(jquery) {
         csrftoken = _getCsrfToken('csrfmiddlewaretoken');
 
         jquery.ajaxSetup({
@@ -22,15 +22,15 @@ var try_python_rest_api = (function(){
         });
     };
 
-    api.eval = function(jquery, url, data, callback){
+    api.sendPythonExpression = function(jquery, url, data, callback) {
         data.csrfmiddlewaretoken = _getCsrfToken('csrfmiddlewaretoken');
         jquery.ajax({
-        url: url,
-        dataType: 'json',
-        type: 'POST',
-        data: data,
-        success: callback
-      });
+            url: url,
+            dataType: 'json',
+            type: 'POST',
+            data: data,
+            success: callback
+        });
     };
 
     return api;
