@@ -8,6 +8,8 @@
   "scripts": {
     "test": "grunt jasmine"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1"
+    },
   "dependencies": {}
 }

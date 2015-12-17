@@ -3,7 +3,7 @@ node_js:
   - "stable"
 
 before_script:
-  - npm install -g grunt
+  - npm install -g grunt-cli
   - npm install -g jasmine
 
 before_install:
