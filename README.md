@@ -1,4 +1,6 @@
-# Try python is a project inspired by [try-haskell](tryhaskell.org)
+# Try Python [![Build Status](https://travis-ci.org/IuryAlves/TryPython.svg?branch=master)](https://travis-ci.org/IuryAlves/TryPython)
+
+## Try python is a project inspired by [try-haskell](tryhaskell.org)
 
 
 ![try-python](try-python.gif)
