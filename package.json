@@ -1,0 +1,13 @@
+{
+  "name": "Try-Python",
+  "description": "Try Python on your browser",
+  "author": {
+    "name": "Iury Alves de Souza",
+    "email": "iuryalves20@gmail.com"
+  },
+  "scripts": {
+    "test": "grunt jasmine"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
