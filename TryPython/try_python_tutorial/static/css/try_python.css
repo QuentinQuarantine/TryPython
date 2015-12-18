@@ -8,6 +8,9 @@ body {
 .logo{
   text-align: left;
   float: left;
+   width: 100px;
+   height: 100px;
+   margin-top: 13px;
 }
 
 .header-text{
