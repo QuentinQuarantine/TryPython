@@ -1,4 +1,4 @@
-var try_python_rest_api = (function() {
+var python_console_rest_api = (function() {
 
 
     // private 
@@ -12,8 +12,8 @@ var try_python_rest_api = (function() {
 
     api.init = function(jquery) {
         csrftoken = _getCsrfToken('csrfmiddlewaretoken');
-
-        jquery.ajaxSetup({
+        api.jquery = jquery;
+        api.jquery.ajaxSetup({
             beforeSend: function(xhr, settings) {
                 if (this.crossDomain) {
                     xhr.setRequestHeader("X-CSRFToken", csrftoken);
@@ -22,10 +22,11 @@ var try_python_rest_api = (function() {
         });
     };
 
-    api.sendPythonExpression = function(jquery, url, data, callback) {
+    api.sendPythonExpression = function(expression, callback) {
+        var data = {'toEval': expression};
         data.csrfmiddlewaretoken = _getCsrfToken('csrfmiddlewaretoken');
-        jquery.ajax({
-            url: url,
+        api.jquery.ajax({
+            url: '/eval',
             dataType: 'json',
             type: 'POST',
             data: data,

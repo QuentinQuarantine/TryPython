@@ -19,6 +19,7 @@ var py_console = (function() {
 
     api.console_options.promptLabel = ">>> ";
     api.console_options.continuedPromptLabel = '...\t';
+
     api.console_options.commandHandle = function(line, report) {
         if (api.console.continuedPrompt) {
             var last_statement = _get_last_statement(line);
@@ -44,9 +45,7 @@ var py_console = (function() {
             _multiple_statements = "";
         }
 
-        api.try_python_rest_api.sendPythonExpression($, "/eval", {
-            toEval: line
-        }, function(result) {
+        api.rest_api.sendPythonExpression(line, function(result) {
             var msgs = [];
             var out = result.out;
             var err = result.err;
@@ -75,10 +74,10 @@ var py_console = (function() {
     api.console_options.welcomeMessage = 'Welcome to python interactive web console.';
     api.console_options.autofocus = true;
 
-    api.init = function(jquery, try_python_rest_api) {
+    api.init = function(jquery, python_console_rest_api) {
         api.jquery = jquery;
-        api.try_python_rest_api = try_python_rest_api;
-        try_python_rest_api.init(jquery);
+        api.rest_api = python_console_rest_api;
+        python_console_rest_api.init(jquery);
 
         api.jquery(document).ready(function() {
             var console_element = api.jquery('<div class="console">');
