@@ -3,21 +3,21 @@ module.exports = function(grunt) {
     jasmine : {
       // Your project's source files
       src : [
-        'TryPython/try_python_tutorial/static/js/lib/jquery.min.js',
-        'TryPython/try_python_tutorial/static/js/lib/jquery.console.js',
-        'TryPython/try_python_tutorial/static/js/src/*.js',
+        'TryPython/core/static/js/lib/jquery.min.js',
+        'TryPython/core/static/js/lib/jquery.console.js',
+        'TryPython/core/static/js/src/*.js',
         ],
       options : {
         specs : [
-          'TryPython/try_python_tutorial/static/js/test/specHelper.js',
-          'TryPython/try_python_tutorial/static/js/test/*.js'
+          'TryPython/core/static/js/test/specHelper.js',
+          'TryPython/core/static/js/test/*.js'
           ],
       }
     },
     jshint: {
       all: [
-        'TryPython/try_python_tutorial/static/js/src/*.js',
-        'TryPython/try_python_tutorial/static/js/test/*.js'
+        'TryPython/core/static/js/src/*.js',
+        'TryPython/core/static/js/test/*.js'
         ]
     }
   });

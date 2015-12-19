@@ -1,7 +1,11 @@
 var py_console = (function() {
 
     // private
-    var _multiple_statements = "";
+    var _statements = "";
+    var _spaces = "";
+    var _key_codes = {
+        '32': '\\b' // space
+    };
 
     var _get_last_statement = function(line) {
         var splited_line = line.split("\n");
@@ -25,9 +29,9 @@ var py_console = (function() {
             var last_statement = _get_last_statement(line);
             if (last_statement.trim()) {
                 if (!last_statement.endsWith(":")) {
-                    _multiple_statements += '\n\t' + last_statement;
+                    _statements += '\n\t' + last_statement;
                 } else if (last_statement.endsWith(":")) {
-                    _multiple_statements += '\n' + last_statement;
+                    _statements += '\n' + last_statement;
                 }
                 return;
             }
@@ -35,14 +39,14 @@ var py_console = (function() {
         }
         if (line.endsWith(":")) {
             api.console.continuedPrompt = true;
-            _multiple_statements += _get_last_statement(line);
+            _statements += _get_last_statement(line);
             return;
         } else {
             api.console.continuedPrompt = false;
         }
-        if (_multiple_statements) {
-            line = _multiple_statements + '\n';
-            _multiple_statements = "";
+        if (_statements) {
+            line = _statements + '\n';
+            _statements = "";
         }
 
         api.rest_api.sendPythonExpression(line, function(result) {
