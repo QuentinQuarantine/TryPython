@@ -27,7 +27,11 @@
 * Install project dependencies:
 
         pip install -r requirements.txt
-        
+
+* Sync the database
+
+        ./manage.py syncdb
+
 * Run
         
         export DJANGO_SECRET_KEY=<your-secret-key> 
