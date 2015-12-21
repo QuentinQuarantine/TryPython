@@ -22,9 +22,14 @@ class AcquireStdOutAndStdErr(object):
         sys.stderr = AcquireStdOutAndStdErr.original_stderr
 
 
-def _eval(to_eval):
-    ns = {'__builtins__': []}
-    console = code.InteractiveConsole(locals=ns)
+def _eval(to_eval, namespace=None):
+    if namespace is None:
+        namespace = {}
+    else:
+        namespace = eval(namespace)
+
+    namespace['__builtins__'] = []
+    console = code.InteractiveConsole(locals=namespace)
 
     with AcquireStdOutAndStdErr():
 
@@ -37,8 +42,9 @@ def _eval(to_eval):
     out = AcquireStdOutAndStdErr.fake_stdout.getvalue()
     err = AcquireStdOutAndStdErr.fake_stderr.getvalue()
 
-    return out + '}##{' + err
+    return out + '}##{' + str(namespace) + '}##{' + err
 
 if __name__ == "__main__":
     to_eval = sys.argv[1]
-    print _eval(to_eval)
+    namespace = sys.argv[2]
+    print _eval(to_eval, namespace=namespace)

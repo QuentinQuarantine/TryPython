@@ -14,6 +14,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument("expression", type=str)
+        parser.add_argument("namespace", type=str)
         parser.add_argument("--python",
                             dest="python",
                             type=str,
@@ -67,6 +68,7 @@ class Command(BaseCommand):
         pypy_c = kwargs.get("pypy_c")
         eval_script = kwargs.get("eval_script")
         expression = kwargs.get("expression")
+        namespace = kwargs.get("namespace")
 
         command = [python]
 
@@ -81,7 +83,7 @@ class Command(BaseCommand):
         if eval_script is not None:
             command.append(eval_script)
 
-        command.append(expression)
+        command.extend([expression, namespace])
 
         try:
             out = subprocess.check_output(command)
