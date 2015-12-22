@@ -2,10 +2,6 @@ var py_console = (function() {
 
     // private
     var _statements = "";
-    var _spaces = "";
-    var _key_codes = {
-        '32': '\\b' // space
-    };
 
     var _get_last_statement = function(line) {
         var splited_line = line.split("\n");
@@ -19,6 +15,15 @@ var py_console = (function() {
 
     api.console_options.commandValidate = function(line) {
         return true;
+    };
+
+    api.console_options.keyCodes = {
+        9: function(){
+            api.console.typer.consoleInsert(32); //inserts space
+        },
+        18: function(){
+            api.console.typer.consoleInsert(32); //inserts space
+        }
     };
 
     api.console_options.promptLabel = ">>> ";
