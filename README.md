@@ -43,22 +43,8 @@ Now, just access localhost:8000 =D
 
 ## Contributing
 
- * Install nodejs
- 
- 
-        npm install  # on project root path
-
-* Run js tests and lint
-
-
-        npm test
+* See the contributing [guide](CONTRIBUTING.md)
     
 This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
-
-
-There are a lot of things to do.
-
-* You can check the issues of the project to know in what you can contribute
-* You can access the wiki to know how run this using pypy in a sandbox and also discover how the security against malicious users are implemented.
 
 This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
