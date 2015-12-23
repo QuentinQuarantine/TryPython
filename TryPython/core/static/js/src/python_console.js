@@ -1,16 +1,24 @@
 var py_console = (function() {
 
-    // private
-    var _statements = "";
-
     var _get_last_statement = function(line) {
         var splited_line = line.split("\n");
         return splited_line[splited_line.length - 1];
     };
 
+    var insert_space = function(quantity){
+        var i = 0;
+        if (!quantity){
+            quantity = 4;
+        }
+        while(i < quantity){
+            api.console.typer.consoleInsert(32); //inserts space
+            i += 1;
+        }
+    };
 
     //public
     var api = {};
+    api.statements = '';
     api.console_options = {};
 
     api.console_options.commandValidate = function(line) {
@@ -18,40 +26,32 @@ var py_console = (function() {
     };
 
     api.console_options.keyCodes = {
-        9: function(){
-            api.console.typer.consoleInsert(32); //inserts space
-        },
-        18: function(){
-            api.console.typer.consoleInsert(32); //inserts space
-        }
+        9:  insert_space,
+        18: insert_space
     };
 
     api.console_options.promptLabel = ">>> ";
-    api.console_options.continuedPromptLabel = '...\t';
+    api.console_options.continuedPromptLabel = '...';
+
 
     api.console_options.commandHandle = function(line, report) {
         if (api.console.continuedPrompt) {
             var last_statement = _get_last_statement(line);
             if (last_statement.trim()) {
-                if (!last_statement.endsWith(":")) {
-                    _statements += '\n\t' + last_statement;
-                } else if (last_statement.endsWith(":")) {
-                    _statements += '\n' + last_statement;
-                }
+                api.statements += '\n' + last_statement;
                 return;
             }
-
         }
         if (line.endsWith(":")) {
             api.console.continuedPrompt = true;
-            _statements += _get_last_statement(line);
+            api.statements += _get_last_statement(line);
             return;
         } else {
             api.console.continuedPrompt = false;
         }
-        if (_statements) {
-            line = _statements + '\n';
-            _statements = "";
+        if (api.statements) {
+            line = api.statements + '\n';
+            api.statements = "";
         }
 
         api.rest_api.sendPythonExpression(line, function(result) {

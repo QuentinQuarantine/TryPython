@@ -19,6 +19,8 @@ describe("Python Console Tests", function() {
         spyOn(python_console_rest_api, 'sendPythonExpression');
         spyOn(jquery, 'ready');
         py_console.init($, python_console_rest_api);
+        report = function(){};
+
     });
 
     it("It should init the python console", function() {
@@ -36,9 +38,9 @@ describe("Python Console Tests", function() {
         expect(py_console.console.promptLabel).toEqual(">>> ");
     });
 
-    it("py_console.console_options.continuedPromptLabel should be ...\\t", function() {
+    it("py_console.console_options.continuedPromptLabel should be ...", function() {
 
-        expect(py_console.console_options.continuedPromptLabel).toEqual("...\t");
+        expect(py_console.console_options.continuedPromptLabel).toEqual("...");
 
     });
 
@@ -61,11 +63,28 @@ describe("Python Console Tests", function() {
 
     it("py_console.console.commandHandle should send the expression to backend", function() {
     
-        var report = function(){};
         py_console.console_options.commandHandle('1+1', report);
 
         expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('1+1', jasmine.any(Function));
+    });
 
+    it("py_console.console.commandHandle should insert \\n after :", function() {
+    
+        py_console.console_options.commandHandle('for x in (1, 2, 3):', report);
+
+        expect(py_console.statements).toEqual('for x in (1, 2, 3):');
+        expect(py_console.console.continuedPrompt).toBe(true);
+
+        py_console.console_options.commandHandle('  print x', report);
+
+        expect(py_console.statements).toEqual('for x in (1, 2, 3):\n  print x');
+        expect(py_console.console.continuedPrompt).toBe(true);
+
+        py_console.console_options.commandHandle('\n', report);
+
+        expect(py_console.statements).toEqual('');
+        expect(py_console.console.continuedPrompt).toBe(false);
+        expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('for x in (1, 2, 3):\n  print x\n', jasmine.any(Function));
     });
 
 });
