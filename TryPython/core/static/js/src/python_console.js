@@ -35,6 +35,9 @@ var py_console = (function() {
 
 
     api.console_options.commandHandle = function(line, report) {
+        if (!line){
+            return '';
+        }
         if (api.console.continuedPrompt) {
             var last_statement = _get_last_statement(line);
             if (last_statement.trim()) {
@@ -53,7 +56,6 @@ var py_console = (function() {
             line = api.statements + '\n';
             api.statements = "";
         }
-
         api.rest_api.sendPythonExpression(line, function(result) {
             var msgs = [];
             var out = result.out;

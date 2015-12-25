@@ -87,4 +87,8 @@ describe("Python Console Tests", function() {
         expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('for x in (1, 2, 3):\n  print x\n', jasmine.any(Function));
     });
 
+    it("don't break a empty line if the input is empty", function(){
+        expect(py_console.console_options.commandHandle('', report)).toEqual('');
+        expect(python_console_rest_api.sendPythonExpression).not.toHaveBeenCalled(); 
+    });
 });
