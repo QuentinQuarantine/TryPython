@@ -1,20 +1,23 @@
 body {
-  background: #f7f7f7;
   font-family: 'Merriweather';
 }
-.container{
-  height: 125px;
+nav{
+  height: 71px;
+  border-bottom: 1px;
+  margin-bottom: 25px;
+  border-bottom-style: solid;
+  border-bottom-color: #7f8c8d;
 }
 .logo{
   text-align: left;
   float: left;
-   width: 100px;
-   height: 100px;
-   margin-top: 13px;
+  top: 12px;
+  position: absolute;
 }
 
 .header-text{
-  margin-top: 42px;
+  margin-top: 37px;
+  margin-left: 86px;
   color: #95A5A6;
   font-family: "ubuntu mono",monospace;
 }
@@ -78,14 +81,7 @@ body {
 /* Console */
 .console {
   background: #fff;
-  padding: 0 0 2em 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-#console {
   font-family: "ubuntu mono",monospace;
-    font-size: 22px;
-
 }
 .jquery-console-nofocus {
   opacity: 0.8;
@@ -102,12 +98,12 @@ body {
 }
 
 .jquery-console-prompt, .jquery-console-message{
-    font-size: 22px;
+    font-size: 17px;
 }
 .jquery-console-prompt-label {
   color: #16a085;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
 }
 .jquery-console-error {
   color: #c0392b;

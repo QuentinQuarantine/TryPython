@@ -5,28 +5,28 @@
   <meta name="Content-Type" content="text/html; charset=UTF-8">
   {% load staticfiles %}
   <link rel='shortcut icon' type="image/ico" href='{% static 'images/favicon.ico' %}'/>
-  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"/>
   <link rel="stylesheet" type="text/css" href="{% static "css/try_python.css" %}"/>
 </head>
 <body>
-  <div class="trap ribbon-wrap right">
+  <nav>
+    <div class="row">
+      <div class="span12">
+        <img class="logo" src="/static/images/python.svg" width="80" height="80" />
+          <h1 class="header-text">Try Python</h1>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="trap ribbon-wrap right">
     <div class="trap-ribbon">
       <a href="https://github.com/IuryAlves/TryPython" target="_blank">
         Fork me on github
       </a>
     </div>
-  </div>
-  <div class="container">
+  </div> -->
   {% csrf_token %}
-    <div class="row">
-      <div class="span12">
-        <img class="logo" src="/static/images/python.svg" width="80" height="80" />
-          <h1 class="header-text"> Try Python</h1>
-      </div>
-    </div>
-  </div>
   <div class="console">
-        <div class="span6" id="console"></div>
+    <div class="span6" id="console">
+    </div>
   </div>
 
   <script type="text/javascript" src="{% static "js/lib/jquery.min.js" %}"></script>
