@@ -75,7 +75,7 @@ var py_console = (function() {
                 report(msgs);
             } else {
                 report([{
-                    msg: err,
+                    msg: err.trim(),
                     className: "jquery-console-error"
                 }]);
                 return;
