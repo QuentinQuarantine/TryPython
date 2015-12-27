@@ -8,6 +8,13 @@ nav{
   border-bottom-style: solid;
   border-bottom-color: #7f8c8d;
 }
+
+.tutorial-content{
+    float: right;
+    width: 50%;
+    display: none;
+}
+
 .logo{
   text-align: left;
   float: left;
@@ -82,6 +89,7 @@ nav{
 .console {
   background: #fff;
   font-family: "ubuntu mono",monospace;
+  width: 50%;
 }
 .jquery-console-nofocus {
   opacity: 0.8;

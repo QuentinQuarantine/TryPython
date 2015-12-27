@@ -7,6 +7,20 @@ var python_console_rest_api = (function() {
         return csrf_element.value;
     };
 
+    var _build_json_ajax_call = function(params, url, callback){
+        if (!params){
+            params  = {};
+        }
+        params.csrfmiddlewaretoken = _getCsrfToken('csrfmiddlewaretoken');
+        api.jquery.ajax({
+            url: url,
+            dataType: 'json',
+            type: 'POST',
+            data: params,
+            success: callback
+        });
+    };
+
     // public 
     var api = {};
 
@@ -23,15 +37,11 @@ var python_console_rest_api = (function() {
     };
 
     api.sendPythonExpression = function(expression, callback) {
-        var data = {'toEval': expression};
-        data.csrfmiddlewaretoken = _getCsrfToken('csrfmiddlewaretoken');
-        api.jquery.ajax({
-            url: '/eval',
-            dataType: 'json',
-            type: 'POST',
-            data: data,
-            success: callback
-        });
+        _build_json_ajax_call({'toEval': expression}, '/eval', callback);
+    };
+
+    api.getStep = function(step, callback){
+        _build_json_ajax_call({'step': step}, '/step', callback);
     };
 
     return api;

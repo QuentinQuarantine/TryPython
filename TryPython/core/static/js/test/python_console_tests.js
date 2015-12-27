@@ -6,31 +6,38 @@ describe("Python Console Tests", function() {
                 return "csrftoken";
             },
             init: function(jquery) {},
-            sendPythonExpression: function(){}
+            sendPythonExpression: function(){},
+            getStep: function(){}
         };
         jquery = {
-            ready: function() {
-
-            },
+            ready: function() {}
         };
+        report = function(){};
 
         spyOn(python_console_rest_api, '_getCsrfToken');
         spyOn(python_console_rest_api, 'init');
         spyOn(python_console_rest_api, 'sendPythonExpression');
+        spyOn(python_console_rest_api, 'getStep');
         spyOn(jquery, 'ready');
+        spyOn(py_console, 'get_step').and.callThrough();
+
         py_console.init($, python_console_rest_api);
-        report = function(){};
+        spyOn(py_console.console, 'reset').and.callThrough();
 
     });
 
-    it("It should init the python console", function() {
+    it("Should init the python console", function() {
 
         expect(py_console.jquery).toEqual($);
         expect(py_console.rest_api).toEqual(python_console_rest_api);
         expect(python_console_rest_api.init.calls.count(), 1);
         expect(jquery.ready.calls.count(), 1);
         expect(py_console.console).not.toBe(null);
+        expect(py_console.current_step).toEqual(1);
+    });
 
+    it("Should get the first step on document.ready", function(){
+        expect(py_console.get_step).toHaveBeenCalledWith();
     });
 
     it("py_console.console.promptLabel should be >>>", function() {
@@ -50,9 +57,9 @@ describe("Python Console Tests", function() {
 
     });
 
-    it("py_console.console_options.welcomeMessage should be 'Welcome to python interactive web console.'", function() {
+    it("py_console.console_options.welcomeMessage should be undefined", function() {
 
-        expect(py_console.console_options.welcomeMessage).toBe('Welcome to python interactive web console.');
+        expect(py_console.console_options.welcomeMessage).toBe(undefined);
 
     });
 
@@ -89,6 +96,20 @@ describe("Python Console Tests", function() {
 
     it("don't break a empty line if the input is empty", function(){
         expect(py_console.console_options.commandHandle('', report)).toEqual('');
+        expect(python_console_rest_api.sendPythonExpression).not.toHaveBeenCalled(); 
+    });
+
+    it("call python_console_rest_api.getStep", function(){
+
+        expect(python_console_rest_api.getStep).toHaveBeenCalledWith(1, jasmine.any(Function));
+        expect(py_console.current_step).toEqual(1);
+    });
+
+    it("py_console.console_options.commandHandle with 'next' will call get_step and clean the console", function(){
+        py_console.console_options.commandHandle('next', report);
+
+        expect(py_console.get_step).toHaveBeenCalled();
+        expect(py_console.console.reset).toHaveBeenCalled();
         expect(python_console_rest_api.sendPythonExpression).not.toHaveBeenCalled(); 
     });
 });

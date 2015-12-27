@@ -16,10 +16,24 @@ var py_console = (function() {
         }
     };
 
+
     //public
     var api = {};
     api.statements = '';
     api.console_options = {};
+
+    api.get_step = function(){
+        var tutorial_content_element = api.jquery(".tutorial-content");
+
+        if (api.current_step > 0){
+            tutorial_content_element.empty().fadeOut("slow");
+        }
+        api.current_step += 1;
+        api.rest_api.getStep(api.current_step, function(result){
+           tutorial_content_element.append("<p>" + result.content + "</p>").fadeIn('slow');
+        });
+        
+    };
 
     api.console_options.commandValidate = function(line) {
         return true;
@@ -32,11 +46,18 @@ var py_console = (function() {
 
     api.console_options.promptLabel = ">>> ";
     api.console_options.continuedPromptLabel = '...';
+    api.console_options.autofocus = true;
+    api.console_options.fadeOnReset = false;
 
 
     api.console_options.commandHandle = function(line, report) {
         if (!line){
             return '';
+        }
+        if (line.trim() === 'next'){
+            api.get_step();
+            api.console.reset();
+            return;
         }
         if (api.console.continuedPrompt) {
             var last_statement = _get_last_statement(line);
@@ -82,19 +103,19 @@ var py_console = (function() {
             }
         });
     };
-    api.console_options.welcomeMessage = 'Welcome to python interactive web console.';
-    api.console_options.autofocus = true;
 
     api.init = function(jquery, python_console_rest_api) {
         api.jquery = jquery;
         api.rest_api = python_console_rest_api;
         python_console_rest_api.init(jquery);
 
+        api.current_step = 0;
         api.jquery(document).ready(function() {
             var console_element = api.jquery('<div class="console">');
             api.jquery('body').append(console_element);
 
             api.console = console_element.console(api.console_options);
+            api.get_step();
         });
     };
 

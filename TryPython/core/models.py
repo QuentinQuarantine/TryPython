@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Step(models.Model):
+    content = models.TextField()
+
+    def to_dict(self):
+        return {
+            'content': self.content
+        }
