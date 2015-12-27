@@ -32,6 +32,10 @@
 
         ./manage.py syncdb
 
+* Run the migrations:
+        
+        ./manage.py migrate
+
 * Run
         
         export DJANGO_SECRET_KEY=<your-secret-key> 
