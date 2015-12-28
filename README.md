@@ -28,6 +28,10 @@
 
         pip install -r requirements.txt
 
+* Cd again ;)
+
+        cd TryPython
+
 * Sync the database
 
         ./manage.py syncdb
@@ -47,7 +51,6 @@
 * Run
         
         export DJANGO_SECRET_KEY=<your-secret-key> 
-        cd TryPython
         ./manage.py runserver 8000
 
 
@@ -57,6 +60,5 @@ Now, just access localhost:8000 =D
 
 * See the contributing [guide](CONTRIBUTING.md)
     
-This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
-
-This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
+* This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
+* This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
