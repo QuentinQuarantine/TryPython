@@ -1,0 +1,10 @@
+[
+	{
+		"model": "core.Step",
+		"pk": 1,
+		"fields":{
+			"content": "This tutorial will guide you on ....",
+			"title": "Learn python in 15 minutes"
+		}
+	}
+]

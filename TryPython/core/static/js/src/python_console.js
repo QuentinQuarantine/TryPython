@@ -30,6 +30,7 @@ var py_console = (function() {
         }
         api.current_step += 1;
         api.rest_api.getStep(api.current_step, function(result){
+           tutorial_content_element.append("<h2>" + result.title + "</h2>").fadeIn('slow'); 
            tutorial_content_element.append("<p>" + result.content + "</p>").fadeIn('slow');
         });
         
