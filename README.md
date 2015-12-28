@@ -32,9 +32,17 @@
 
         ./manage.py syncdb
 
+* Make the migrations
+
+        ./manage.py makemigrations
+
 * Run the migrations:
         
         ./manage.py migrate
+
+* Load the fixtures of the project
+
+        ./manage.py loaddata steps.json
 
 * Run
         
