@@ -1,8 +1,12 @@
-language: node_js
+language: python
 node_js:
   - "stable"
 
 before_script:
   - npm install -g grunt-cli
   - npm install
+  - pip install pep8
+  
+script:
+  pep8
 
