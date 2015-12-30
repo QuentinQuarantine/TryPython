@@ -6,7 +6,8 @@ before_script:
   - npm install -g grunt-cli
   - npm install
   - pip install pep8
-  
+
 script:
-  pep8
+  - npm test
+  -pep8
 
