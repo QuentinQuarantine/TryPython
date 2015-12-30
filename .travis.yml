@@ -8,6 +8,6 @@ before_script:
   - pip install pep8
 
 script:
-  - npm test
+  -npm test
   -pep8
 
