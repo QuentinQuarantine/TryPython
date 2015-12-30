@@ -1,4 +1,4 @@
-# Try Python [![Build Status](https://travis-ci.org/IuryAlves/TryPython.svg?branch=master)](https://travis-ci.org/IuryAlves/TryPython) [![For the badge](http://forthebadge.com/images/badges/built-with-love.svg)!]
+# Try Python [![Build Status](https://travis-ci.org/IuryAlves/TryPython.svg?branch=master)](https://travis-ci.org/IuryAlves/TryPython) [![For the badge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com/images/badges/built-with-love.svg)
 
 ## Try python is a project inspired by [try-haskell](tryhaskell.org)
 
