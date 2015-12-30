@@ -12,7 +12,7 @@ class IndexView(TemplateView):
     template_name = "main.html"
 
 
-class EvalResponseView(View):
+class EvalView(View):
 
     def post(self, request):
         to_eval = request.POST.get("toEval")
@@ -25,6 +25,7 @@ class EvalResponseView(View):
 
         request.session['namespace'] = namespace
         return JsonResponse({'out':  out, 'err': err})
+
 
 class StepView(View):
 

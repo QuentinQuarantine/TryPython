@@ -20,18 +20,19 @@ class Command(BaseCommand):
                             type=str,
                             default="/usr/bin/python",
                             help="""
-		 		Python interpreter to run the eval script.
-		 		If using in production, must call a pypy interpreter
-		 		in a sandboxed environment
-		 		"""
+            Python interpreter to run the eval script.
+            If using in production, must call a pypy interpreter
+            in a sandboxed environment
+            """
                             )
+
         parser.add_argument("--eval-script",
                             dest="eval_script",
                             type=str,
                             default=settings.BASE_DIR + '/eval.py',
                             help="""
-				Python script to eval the expression
-				"""
+            Python script to eval the expression
+            """
                             )
 
         parser.add_argument("--pypy-interact",
@@ -39,8 +40,8 @@ class Command(BaseCommand):
                             type=str,
                             default=None,
                             help="""
-				Pypy interact script
-				"""
+            Pypy interact script
+            """
                             )
 
         parser.add_argument("--tmp-folder",
@@ -48,8 +49,8 @@ class Command(BaseCommand):
                             type=str,
                             default=None,
                             help="""
-				Pypy sandbox tmp folder
-				"""
+            Pypy sandbox tmp folder
+            """
                             )
 
         parser.add_argument("--pypy-c",
@@ -57,8 +58,8 @@ class Command(BaseCommand):
                             type=str,
                             default=None,
                             help="""
-				pypy-c script
-				"""
+            pypy-c script
+            """
                             )
 
     def handle(self, *args, **kwargs):
@@ -87,7 +88,6 @@ class Command(BaseCommand):
 
         try:
             out = subprocess.check_output(command)
-
             print(out, file=self.stdout)
         except subprocess.CalledProcessError as err:
             sys.stderr.write(str(err),)
