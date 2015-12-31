@@ -2,3 +2,4 @@ node_modules
 .idea
 *.py[co]
 venv
+.tox
