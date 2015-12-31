@@ -1,9 +1,9 @@
 # coding: utf-8
 
-
 import sys
 import code
-from io import BytesIO, StringIO
+import json
+from io import BytesIO
 
 
 class AcquireStdOutAndStdErr(object):
@@ -40,11 +40,11 @@ def _eval(to_eval, namespace=None):
                 console.push(u'\n')
 
     out = AcquireStdOutAndStdErr.fake_stdout.getvalue()
-    err = AcquireStdOutAndStdErr.fake_stderr.getvalue()
+    error = AcquireStdOutAndStdErr.fake_stderr.getvalue()
 
-    return out + '}##{' + str(namespace) + '}##{' + err
+    return {'out': out, 'namespace': str(namespace), 'error': error}
 
 if __name__ == "__main__":
     to_eval = sys.argv[1]
     namespace = sys.argv[2]
-    print _eval(to_eval, namespace=namespace)
+    print json.dumps(_eval(to_eval, namespace=namespace))

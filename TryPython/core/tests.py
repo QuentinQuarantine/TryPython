@@ -15,7 +15,7 @@ class ViewsTestCase(TestCase):
 
         response = self.client.post("/eval", {"toEval": "1+1"})
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(response.content, json.dumps({"out": "2\n", "err": "\n\n"}))
+        self.assertEquals(response.content, json.dumps({"out": "2\n", "err": ""}))
 
     def test_eval_view_that_will_raise_python_exception(self):
 
@@ -24,7 +24,7 @@ class ViewsTestCase(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.content,
                           json.dumps({"out": "", "err": 'Traceback (most recent call last):\n  File "<console>",'
-                                      ' line 1, in <module>\nNameError: name \'a\' is not defined\n\n\n'}))
+                                      ' line 1, in <module>\nNameError: name \'a\' is not defined\n'}))
 
     def test_step_view_that_doesnt_exists(self):
 

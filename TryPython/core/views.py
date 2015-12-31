@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import json
 from StringIO import StringIO
 from django.core.management import call_command
 from django.views.generic import TemplateView, View
@@ -21,7 +22,8 @@ class EvalView(View):
 
         out = StringIO()
         call_command("eval", to_eval, namespace, stdout=out)
-        out, namespace, err = out.getvalue().split("}##{")
+        values = json.loads(out.getvalue())
+        out, namespace, err = values['out'], values['namespace'], values['error']
 
         request.session['namespace'] = namespace
         return JsonResponse({'out':  out, 'err': err})
