@@ -5,7 +5,7 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - pip requirements/dev_requirements.txt
+  - pip install -r requirements/dev_requirements.txt
 
 script:
   - npm test
