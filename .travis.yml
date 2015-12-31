@@ -9,5 +9,5 @@ before_script:
 
 script:
   - npm test
-  -pep8
+  - tox
 
