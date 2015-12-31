@@ -6,6 +6,7 @@ before_script:
   - npm install -g grunt-cli
   - npm install
   - pip install pep8
+  - pip install tox
 
 script:
   - npm test
