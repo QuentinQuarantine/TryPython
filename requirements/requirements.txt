@@ -1,1 +1,2 @@
 django==1.8
+python-decouple==3.0
