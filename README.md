@@ -26,19 +26,11 @@
 
 * Install project dependencies:
 
-        pip install -r requirements.txt
+        pip install -r requirements/requirements.txt
 
 * Cd again ;)
 
         cd TryPython
-
-* Sync the database
-
-        ./manage.py syncdb
-
-* Make the migrations
-
-        ./manage.py makemigrations
 
 * Run the migrations:
         

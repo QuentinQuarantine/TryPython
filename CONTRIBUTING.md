@@ -6,15 +6,21 @@
 
 
 * Install nodejs
-* Install npm dependencies 
+* Install npm dependencies
  
         npm install  # on project root path
+
+* Install python dev dependencies
+
+        pip install -r requirements/dev_requirements.txt
 
 * Run js tests and lint
 
         npm test  # on project root path
 
+* Run python Tests and pep8
 
+        tox # on project root path
 
 #### **Did you find a bug?**
 
