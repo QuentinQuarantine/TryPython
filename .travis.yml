@@ -5,8 +5,7 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - pip install pep8
-  - pip install tox
+  - pip requirements/dev_requirements.txt
 
 script:
   - npm test
