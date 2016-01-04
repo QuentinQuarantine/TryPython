@@ -23,7 +23,8 @@ class EvalView(View):
         out = StringIO()
         call_command("eval", to_eval, namespace, stdout=out)
         values = json.loads(out.getvalue())
-        out, namespace, err = values['out'], values['namespace'], values['error']
+        out, namespace, err = values['out'], values[
+            'namespace'], values['error']
 
         request.session['namespace'] = namespace
         return JsonResponse({'out':  out, 'err': err})

@@ -12,13 +12,12 @@ class ViewsTestCase(TestCase):
         self.assertEquals(response.template_name, ['main.html'])
 
     def test_eval_view(self):
-
         response = self.client.post("/eval", {"toEval": "1+1"})
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(response.content, json.dumps({"out": "2\n", "err": ""}))
+        self.assertEquals(response.content, json.dumps(
+            {"out": "2\n", "err": ""}))
 
     def test_eval_view_that_will_raise_python_exception(self):
-
         response = self.client.post("/eval", {'toEval': 'a'})
 
         self.assertEquals(response.status_code, 200)
@@ -27,7 +26,17 @@ class ViewsTestCase(TestCase):
                                       ' line 1, in <module>\nNameError: name \'a\' is not defined\n'}))
 
     def test_step_view_that_doesnt_exists(self):
-
         response = self.client.post('step', {'step': 1})
 
         self.assertEquals(response.status_code, 404)
+
+
+class ModelsTestCase(TestCase):
+
+    def test_insert_step(self):
+        step = Step(content="some content ...", title="Title")
+        step.save()
+
+        self.assertDictEqual(
+            step.to_dict(),
+            {'content': "some content ...", "title": "Title"})
