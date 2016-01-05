@@ -2,10 +2,13 @@
 
 import json
 from StringIO import StringIO
+
 from django.core.management import call_command
 from django.views.generic import TemplateView, View
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+
+import ast_utils
 from models import Step
 
 
@@ -18,10 +21,20 @@ class EvalView(View):
     def post(self, request):
         to_eval = request.POST.get("toEval")
 
-        namespace = request.session.get('namespace', "{}")
-
+        default_namespace_value = json.dumps({'functions': []})
+        namespace = json.loads(request.session.get('namespace', default_namespace_value))
         out = StringIO()
-        call_command("eval", to_eval, namespace, stdout=out)
+
+        if ast_utils.isFunction(to_eval):
+            try:
+                namespace['functions'].append(to_eval)
+            except KeyError:
+                namespace['functions'] = []
+                namespace['functions'].append(to_eval)
+            call_command("eval", '', json.dumps(namespace), stdout=out)
+        else:
+            call_command("eval", to_eval, json.dumps(namespace), stdout=out)
+
         values = json.loads(out.getvalue())
         out, namespace, err = values['out'], values[
             'namespace'], values['error']
