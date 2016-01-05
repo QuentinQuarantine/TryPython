@@ -20,6 +20,20 @@ class EvalViewTestCase(TestCase):
         expected = json.dumps({u'err': u'', u'out': u'1\n'})
         self.assertJSONEqual(response.content, expected)
 
+    def test_eval_view_for_statement(self):
+            response = self.client.post("/eval", {"toEval": "for x in (1, 2):\n  print x\n"})
+
+            self.assertEquals(response.status_code, 200)
+            expected = json.dumps({u'err': u'', u'out': u'1\n2\n'})
+            self.assertJSONEqual(response.content, expected)
+
+    def test_eval_view_while_loop(self):
+        response = self.client.post("/eval", {"toEval": "while 1:\n  print 'hey'\n  break\n"})
+        expected = json.dumps({"out": "hey\n", "err": ""})
+
+        self.assertEquals(response.status_code, 200)
+        self.assertEquals(response.content, expected)
+
     def test_eval_view_that_will_raise_python_exception(self):
         response = self.client.post("/eval", {'toEval': 'a'})
 
