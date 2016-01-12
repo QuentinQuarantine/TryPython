@@ -11,3 +11,5 @@ script:
   - npm test
   - tox
 
+after_success:
+    - coveralls

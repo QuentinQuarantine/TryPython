@@ -2,4 +2,6 @@ node_modules
 .idea
 *.py[co]
 venv
+htmlcov
 .tox
+.coverage
