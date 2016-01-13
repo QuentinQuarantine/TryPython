@@ -1,12 +1,15 @@
 # Try Python [![Build Status](https://travis-ci.org/IuryAlves/TryPython.svg?branch=master)](https://travis-ci.org/IuryAlves/TryPython) [![Coverage Status](https://coveralls.io/repos/IuryAlves/TryPython/badge.svg?branch=master&service=github)](https://coveralls.io/github/IuryAlves/TryPython?branch=master)  [![For the badge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com/images/badges/built-with-love.svg)
 
-## Try python is a project inspired by [try-haskell](tryhaskell.org)
-
 
 ![try-python](try-python.gif)
-##### The goal of this project is to introduce python for new people by let they use a python REPL( Read, Eval, Print, Loop) in the browser.
+##### The goal of this project is to teach python to new people. This project is a python version from [try-haskell](tryhaskell.org)
 
-## Getting Started
+# Table of contents
+1. [Installing](#installing)
+2. [running](#running)
+3. [Contributing](#contributing)
+
+## Installing <a name="installing"></a>
 
 * Install python 2.x on your system
 *  Install git
@@ -28,27 +31,26 @@
 
         pip install -r requirements/requirements.txt
 
-* Cd again ;)
-
-        cd TryPython
 
 * Run the migrations:
         
-        ./manage.py migrate
+        TryPython/manage.py migrate
 
 * Load the fixtures of the project
 
-        ./manage.py loaddata steps.json
+        TryPython//manage.py loaddata steps.json
+
+## Running <a name="running"></a>
 
 * Run
         
         export DJANGO_SECRET_KEY=<your-secret-key> 
-        ./manage.py runserver 8000
+        TryPython//manage.py runserver 8000
 
 
-Now, just access localhost:8000 =D
+Now, just access [localhost:8000](localhost:8080)
 
-## Contributing
+## Contributing <a name="contributing"></a>
 
 * See the contributing [guide](CONTRIBUTING.md)
     
