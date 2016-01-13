@@ -1,0 +1,4 @@
+[run]
+source = TryPython/core
+omit = 
+    TryPython/core/tests
