@@ -2,6 +2,7 @@ import unittest
 
 from core.ast_utils import isFunction
 
+
 class AstUtilsTestCase(unittest.TestCase):
 
     def test_name_binding_is_not_a_function(self):

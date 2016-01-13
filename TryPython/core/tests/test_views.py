@@ -2,6 +2,7 @@ import json
 from django.test import TestCase
 from core.models import Step
 
+
 class ViewsTestCase(TestCase):
 
     def test_step_view_that_doesnt_exists(self):
