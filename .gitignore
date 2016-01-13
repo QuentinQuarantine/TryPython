@@ -5,3 +5,4 @@ venv
 htmlcov
 .tox
 .coverage
+*.sqlite3
