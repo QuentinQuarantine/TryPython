@@ -26,11 +26,7 @@ class EvalView(View):
         out = StringIO()
 
         if ast_utils.isFunction(to_eval):
-            try:
-                namespace['functions'].append(to_eval)
-            except KeyError:
-                namespace['functions'] = []
-                namespace['functions'].append(to_eval)
+            namespace['functions'].append(to_eval)
             call_command("eval", '', json.dumps(namespace), stdout=out)
         else:
             call_command("eval", to_eval, json.dumps(namespace), stdout=out)

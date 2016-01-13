@@ -1,5 +1,4 @@
 import ast
-import sys
 
 
 def isFunction(stmt):
@@ -18,9 +17,3 @@ def isFunction(stmt):
         return isinstance(body.value, ast.Lambda)
     except AttributeError:
         return isinstance(body, ast.FunctionDef)
-
-if __name__ == "__main__":
-    import doctest
-
-    failure_count, _ = doctest.testmod(verbose=1)
-    sys.exit(failure_count)
