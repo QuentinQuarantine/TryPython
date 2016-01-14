@@ -1,3 +1,4 @@
+import os
 import json
 from StringIO import StringIO
 
@@ -8,6 +9,7 @@ if six.PY2:
 else:
     from unittest.mock import patch
 
+from django.conf import settings
 from django.test import TestCase
 from django.core.management import call_command, CommandError
 
@@ -32,12 +34,13 @@ class CommandsTests(TestCase):
                      pypy_c="/usr/bin/pypy-c",
                      stdout=out)
 
+        eval_script_path = os.path.join(settings.BASE_DIR, 'eval.py')
         check_output.assert_called_with(
             ['/usr/bin/python',
              'pypy_interact.py',
              '--tmp=TryPython/',
              '/usr/bin/pypy-c',
-             '/home/yori/projects/TryPython/TryPython/eval.py',
+             eval_script_path,
              '1+1',
              '{}']
         )
