@@ -12,7 +12,7 @@ class Command(BaseCommand):
     help = "Call a subprocess to eval a python expression"
 
     def add_arguments(self, parser):
-        parser.add_argument("expression", type=str,  default="")
+        parser.add_argument("expression", type=str, default="")
         parser.add_argument("namespace", type=str)
         parser.add_argument("--python",
                             dest="python",

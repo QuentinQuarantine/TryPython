@@ -36,7 +36,7 @@ class EvalView(View):
             'namespace'], values['error']
 
         request.session['namespace'] = namespace
-        return JsonResponse({'out':  out, 'err': err})
+        return JsonResponse({'out': out, 'err': err})
 
 
 class StepView(View):

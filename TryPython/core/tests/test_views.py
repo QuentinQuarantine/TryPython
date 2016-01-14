@@ -79,4 +79,4 @@ class EvalViewTestCase(TestCase):
         response = self.client.post("/eval", {"toEval": 'f(2)'})
 
         expected = json.dumps({"out": "4\n", "err": ""})
-        self.assertJSONEqual(response.content,  expected)
+        self.assertJSONEqual(response.content, expected)

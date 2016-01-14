@@ -1,7 +1,13 @@
 import json
 from StringIO import StringIO
 
-from mock import patch
+import six
+
+if six.PY2:
+    from mock import patch
+else:
+    from unittest.mock import patch
+
 from django.test import TestCase
 from django.core.management import call_command, CommandError
 
