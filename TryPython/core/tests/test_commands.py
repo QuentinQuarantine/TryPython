@@ -15,7 +15,6 @@ class CommandsTests(TestCase):
         with self.assertRaises(CommandError):
             call_command('eval', '1+1', namespace, pypy_interact="pypy_interact.py", stdout=out)
 
-
     @patch('subprocess.check_output')
     def test_eval_command_with_all_options_to_run_in_pypy(self, check_output):
         namespace = json.dumps({})
