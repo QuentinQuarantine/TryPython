@@ -1,4 +1,6 @@
 [run]
-source = TryPython/core
-omit = 
-    TryPython/core/tests
+source =
+    TryPython/core/
+    TryPython/tutorial/
+omit =
+    **/tests/*
