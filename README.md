@@ -14,38 +14,51 @@
 * Install python 2.x on your system
 *  Install git
 * Clone this repository
- 
-        git clone git@github.com:IuryAlves/TryPython.git
-        cd TryPython
+
+```sh
+ git clone git@github.com:IuryAlves/TryPython.git
+ cd TryPython
+ ```
 
 * Install python virtualenv: 
- 
-        sudo pip install virtualenv
+
+``` sh
+sudo pip install virtualenv
+```
 
 * Create a virtualenv:
  
-        virtualenv venv
-        source venv/bin/activate
+```sh
+virtualenv venv
+source venv/bin/activate
+```
 
 * Install project dependencies:
 
-        pip install -r requirements/requirements.txt
-
+```sh
+pip install -r requirements/requirements.txt
+```
 
 * Run the migrations:
-        
-        TryPython/manage.py migrate
+
+```  sh     
+TryPython/manage.py migrate
+```
 
 * Load the fixtures of the project
 
-        TryPython//manage.py loaddata steps.json
+```sh
+TryPython//manage.py loaddata steps.json
+```
 
 ## Running <a name="running"></a>
 
 * Run
-        
-        export DJANGO_SECRET_KEY=<your-secret-key> 
-        TryPython//manage.py runserver 8000
+ 
+```sh       
+ export DJANGO_SECRET_KEY=<your-secret-key> 
+ TryPython//manage.py runserver 8000
+ ```
 
 
 Now, just access [localhost:8000](localhost:8080)
