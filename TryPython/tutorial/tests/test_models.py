@@ -1,5 +1,5 @@
 from django.test import TestCase
-from core.models import Step
+from tutorial.models import Step
 
 
 class ModelsTestCase(TestCase):

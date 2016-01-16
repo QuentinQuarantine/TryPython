@@ -1,6 +1,6 @@
 [
 	{
-		"model": "core.Step",
+		"model": "tutorial.Step",
 		"pk": 1,
 		"fields":{
 			"content": "This tutorial will guide you on ....",
