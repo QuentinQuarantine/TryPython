@@ -20,14 +20,14 @@
  cd TryPython
  ```
 
-* Install python virtualenv: 
+* Install python virtualenv:
 
 ``` sh
 sudo pip install virtualenv
 ```
 
 * Create a virtualenv:
- 
+
 ```sh
 virtualenv venv
 source venv/bin/activate
@@ -54,11 +54,13 @@ TryPython//manage.py loaddata steps.json
 ## Running <a name="running"></a>
 
 * Run
- 
+
 ```sh       
- export DJANGO_SECRET_KEY=<your-secret-key> 
+ export DJANGO_SECRET_KEY=<your-secret-key>
  TryPython//manage.py runserver 8000
  ```
+
+ You can also edit your `.env` file to put your secret key.
 
 
 Now, just access [localhost:8000](localhost:8080)
@@ -66,6 +68,6 @@ Now, just access [localhost:8000](localhost:8080)
 ## Contributing <a name="contributing"></a>
 
 * See the contributing [guide](CONTRIBUTING.md)
-    
+
 * This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
 * This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
