@@ -1,13 +1,17 @@
 # coding: utf-8
 
 import json
-from StringIO import StringIO
+import six
+from six import StringIO
 
 from django.core.management import call_command
 from django.views.generic import TemplateView, View
 from django.http import JsonResponse
 
-import ast_utils
+if six.PY2:
+    import ast_utils
+else:
+    from . import ast_utils
 
 
 class IndexView(TemplateView):
@@ -18,7 +22,6 @@ class EvalView(View):
 
     def post(self, request):
         to_eval = request.POST.get("toEval")
-
         default_namespace_value = json.dumps({'functions': []})
         namespace = json.loads(request.session.get('namespace', default_namespace_value))
         out = StringIO()
@@ -30,8 +33,7 @@ class EvalView(View):
             call_command("eval", to_eval, json.dumps(namespace), stdout=out)
 
         values = json.loads(out.getvalue())
-        out, namespace, err = values['out'], values[
-            'namespace'], values['error']
-
+        out, namespace = values['out'], values['namespace']
+        err = values['error']
         request.session['namespace'] = namespace
         return JsonResponse({'out': out, 'err': err})

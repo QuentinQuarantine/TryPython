@@ -1,7 +1,12 @@
+import six
 from django.views.generic import View
 from django.shortcuts import get_object_or_404
 from django.http.response import JsonResponse
-from models import Step
+
+if six.PY2:
+    from models import Step
+else:
+    from .models import Step
 
 
 class StepView(View):

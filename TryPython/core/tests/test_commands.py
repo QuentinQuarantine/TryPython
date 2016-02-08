@@ -1,10 +1,10 @@
 import sys
 import os
 import json
-from StringIO import StringIO
 from subprocess import CalledProcessError
 
 import six
+from six import StringIO
 
 if six.PY2:
     from mock import patch

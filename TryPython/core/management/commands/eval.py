@@ -87,6 +87,8 @@ class Command(BaseCommand):
 
         try:
             out = subprocess.check_output(command)
+            if isinstance(out, bytes):
+                out = out.decode('utf-8')
             print(out, file=self.stdout)
         except subprocess.CalledProcessError as err:
             sys.stderr.write(str(err),)

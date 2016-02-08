@@ -1,5 +1,10 @@
+import six
 from django.contrib import admin
-from models import Step
+
+if six.PY2:
+    from models import Step
+else:
+    from .models import Step
 
 
 class StepAdmin(admin.ModelAdmin):
