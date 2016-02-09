@@ -26,7 +26,7 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = (
