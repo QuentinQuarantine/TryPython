@@ -39,6 +39,15 @@ source venv/bin/activate
 pip install -r requirements/requirements.txt
 ```
 
+* Generate a DJANGO_SECRET_KEY [here](http://www.miniwebtool.com/django-secret-key-generator/)
+
+* Create a `.env` file in the home of the project and insert this lines
+
+      DEBUG=True
+      DJANGO_SECRET_KEY=<the-secret-key-that-you-gerenate>
+
+    **Then save and close the file.**
+
 * Run the migrations:
 
 ```  sh     
@@ -56,11 +65,8 @@ TryPython//manage.py loaddata steps.json
 * Run
 
 ```sh       
- export DJANGO_SECRET_KEY=<your-secret-key>
  TryPython//manage.py runserver 8000
  ```
-
- You can also edit your `.env` file to put your secret key.
 
 
 Now, just access [localhost:8000](localhost:8080)
