@@ -1,4 +1,4 @@
 FROM ubuntu:14.04
-RUN apt-get install -y git python
+RUN apt-get install -y python3
 COPY eval.py eval.py
-ENTRYPOINT python eval.py $0 $1
+ENTRYPOINT python3 eval.py $0 $1
