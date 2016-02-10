@@ -30,34 +30,11 @@ class CommandsTests(TestCase):
         super(self.__class__, self).tearDown()
         sys.stderr = self.original_stderr
 
-    def test_eval_command_with_only_pypy_interact_option(self):
-        with self.assertRaises(CommandError):
-            call_command('eval', '1+1', self.namespace,
-                         pypy_interact="pypy_interact.py", stdout=self.out)
-
     @patch('subprocess.check_output')
     def test_subprocess_raises_called_error(self, check_output):
         check_output.side_effect = CalledProcessError(2, "<console>")
 
         call_command('eval', '1+1', self.namespace)
-        self.assertEqual(self.fake_stderr.getvalue(), "Command '<console>' returned non-zero exit status 2")
-
-    @patch('subprocess.check_output')
-    def test_eval_command_with_all_options_to_run_in_pypy(self, check_output):
-
-        call_command('eval', '1+1', self.namespace,
-                     pypy_interact="pypy_interact.py",
-                     tmp_folder="TryPython/",
-                     pypy_c="/usr/bin/pypy-c",
-                     stdout=self.out)
-
-        eval_script_path = os.path.join(settings.BASE_DIR, 'eval.py')
-        check_output.assert_called_with(
-            ['/usr/bin/python',
-             'pypy_interact.py',
-             '--tmp=TryPython/',
-             '/usr/bin/pypy-c',
-             eval_script_path,
-             '1+1',
-             '{}']
-        )
+        self.assertEqual(
+            self.fake_stderr.getvalue(),
+            "Command '<console>' returned non-zero exit status 2")
