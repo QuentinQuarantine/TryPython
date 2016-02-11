@@ -27,6 +27,11 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
+# docker protocol + hostname + port, defaults to unix://var/run/docker.sock
+DOCKER_BASE_URL = 'unix://var/run/docker.sock'
+
+DOCKER_IMAGE = 'iury/try-python'
+
 ALLOWED_HOSTS = ["*"]
 
 
