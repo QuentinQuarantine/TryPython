@@ -44,8 +44,8 @@ pip install -r requirements/requirements.txt
 * Create a `.env` file in the home of the project and insert this lines
 
       DEBUG=True
-      
-      DJANGO_SECRET_KEY=<the-secret-key-that-you-gerenate>
+
+      DJANGO_SECRET_KEY=the-secret-key-that-you-gerenate
 
     **Then save and close the file.**
 
