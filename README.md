@@ -45,7 +45,7 @@ pip install -r requirements/requirements.txt
 
       DEBUG=True
 
-      DJANGO_SECRET_KEY=the-secret-key-that-you-gerenate
+      DJANGO_SECRET_KEY=[the-secret-key-that-you-gerenate]
 
     **Then save and close the file.**
 
