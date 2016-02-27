@@ -6,8 +6,7 @@ install:
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - rm -rf .tox
-  - pip install -r requirements/dev_requirements.txt
+  - pip install tox
 
 script:
   - npm test
