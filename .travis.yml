@@ -1,6 +1,6 @@
 language: python
 
-install: "pip install -r ./requirements/dev-requirements.txt"
+install: "pip install -r ./requirements/dev_requirements.txt"
 
 after_success:
     - coveralls
