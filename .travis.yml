@@ -1,6 +1,18 @@
 language: python
 
-install: "pip install -r ./requirements/dev_requirements.txt"
+install: "pip install -r ./requirements/requirements.txt"
+
+node_js:
+  - "stable"
+
+before_script:
+  - npm install -g grunt-cli
+  - npm install
+  - pip install six tox
+
+script:
+  - npm test
+  - tox --sitepackages
 
 after_success:
     - coveralls
