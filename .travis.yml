@@ -2,7 +2,7 @@ language: python
 node_js:
   - "stable"
 install:
-  - pip install -r requirements/requirements.txt
+  - pip install six
 before_script:
   - npm install -g grunt-cli
   - npm install
