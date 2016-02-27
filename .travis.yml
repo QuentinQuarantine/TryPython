@@ -5,11 +5,12 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - pip install six tox
+  - pip install tox
 
 script:
   - npm test
-  - tox --sitepackages
+  - pip install six
+  - tox
 
 after_success:
     - coveralls
