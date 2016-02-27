@@ -5,8 +5,8 @@ dirname = os.path.dirname
 BASE_DIR = dirname(dirname(os.path.abspath(__file__)))
 PROJECT_DIR = dirname(BASE_DIR)
 
-SECRET_KEY = config("DJANGO_SECRET_KEY")
-DEBUG = config("DEBUG", default=False, cast=bool)
+SECRET_KEY = "secret"
+DEBUG = True
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 PRODUCTION = config("PRODUCTION", default=False, cast=bool)
 DOCKER_BASE_URL = 'unix://var/run/docker.sock'
