@@ -1,12 +1,11 @@
 language: python
 node_js:
   - "stable"
-install:
-  - pip install six
+
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - pip install tox
+  - pip install six tox
 
 script:
   - npm test
