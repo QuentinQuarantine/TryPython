@@ -9,7 +9,7 @@ before_script:
 
 script:
   - npm test
-  - tox
+  - tox --sitepackages
 
 after_success:
     - coveralls
