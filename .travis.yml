@@ -1,7 +1,6 @@
 language: python
 
-install:
-  install: "pip install -r ./requirements/requirements.txt"
+install: "pip install -r ./requirements/requirements.txt"
 
 node_js:
   - "stable"
