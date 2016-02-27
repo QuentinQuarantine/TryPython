@@ -5,7 +5,7 @@ node_js:
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - pip install six
+  - pip install six tox
 
 script:
   - npm test
