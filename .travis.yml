@@ -2,16 +2,5 @@ language: python
 
 install: "pip install -r ./requirements/dev-requirements.txt"
 
-node_js:
-  - "stable"
-
-before_script:
-  - npm install -g grunt-cli
-  - npm install
-
-script:
-  - npm test
-  - tox --sitepackages
-
 after_success:
     - coveralls
