@@ -54,4 +54,4 @@ def eval_(to_eval, namespace=None):
 if __name__ == "__main__":
     to_eval = sys.argv[1]
     namespace = sys.argv[2]
-    json.dump(eval_(to_eval, namespace=namespace), sys.stdout)
+    print(json.dumps(eval_(to_eval, namespace=namespace)))
