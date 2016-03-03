@@ -9,7 +9,6 @@ before_script:
 
 script:
   - npm test
-  - pip install six
   - tox
 
 after_success:
