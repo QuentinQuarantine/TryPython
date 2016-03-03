@@ -1,5 +1,4 @@
 import sys
-import os
 import json
 from subprocess import CalledProcessError
 
@@ -13,7 +12,7 @@ else:
 
 from django.conf import settings
 from django.test import TestCase
-from django.core.management import call_command, CommandError
+from django.core.management import call_command
 
 
 class CommandsTests(TestCase):

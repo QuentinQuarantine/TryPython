@@ -25,13 +25,11 @@ class EvalView(View):
         default_namespace_value = json.dumps({'functions': []})
         namespace = json.loads(request.session.get('namespace', default_namespace_value))
         out = StringIO()
-
         if ast_utils.isFunction(to_eval):
             namespace['functions'].append(to_eval)
             call_command("eval", '', json.dumps(namespace), stdout=out)
         else:
             call_command("eval", to_eval, json.dumps(namespace), stdout=out)
-
         values = json.loads(out.getvalue())
         out, namespace = values['out'], values['namespace']
         err = values['error']

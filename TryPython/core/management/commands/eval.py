@@ -23,14 +23,6 @@ class Command(BaseCommand):
                             default=False,
                             help="Run eval inside a docker container")
 
-        parser.add_argument("--python",
-                            dest="python",
-                            type=str,
-                            default="/usr/bin/python",
-                            help="""
-            Python interpreter to run the eval script.
-            """)
-
         parser.add_argument("--eval-script",
                             dest="eval_script",
                             type=str,
@@ -42,7 +34,6 @@ class Command(BaseCommand):
             """)
 
     def handle(self, *args, **kwargs):
-        python = kwargs.get("python")
         eval_script = kwargs.get("eval_script")
         expression = kwargs.get("expression")
         namespace = kwargs.get("namespace")
@@ -66,7 +57,7 @@ class Command(BaseCommand):
                 out = out.decode('utf-8')
             print(out, file=self.stdout)
         else:
-            command = [python, eval_script, expression, namespace]
+            command = ['python', eval_script, expression, namespace]
             try:
                 out = subprocess.check_output(command)
                 if isinstance(out, bytes):

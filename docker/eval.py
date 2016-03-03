@@ -4,24 +4,24 @@ import sys
 import types
 import code
 import json
+from contextlib2 import redirect_stderr, redirect_stdout
 
 from six import class_types, StringIO
 
 
-class AcquireStdOutAndStdErr(object):
-
-    original_stdout = sys.stdout
-    original_stderr = sys.stderr
-    fake_stdout = StringIO()
-    fake_stderr = StringIO()
-
-    def __enter__(self, *args):
-        sys.stdout = AcquireStdOutAndStdErr.fake_stdout
-        sys.stderr = AcquireStdOutAndStdErr.fake_stderr
-
-    def __exit__(self, *args):
-        sys.stdout = AcquireStdOutAndStdErr.original_stdout
-        sys.stderr = AcquireStdOutAndStdErr.original_stderr
+def _get_console_out(to_eval, namespace):
+    fake_out, fake_err = StringIO(), StringIO()
+    console = code.InteractiveConsole(locals=namespace)
+    with redirect_stdout(fake_out), redirect_stderr(fake_err):
+        for function in namespace.get("functions", []):
+            for statement in function.split("\\n"):
+                console.push(statement)
+        for statement in to_eval.split("\n"):
+            if statement:
+                console.push(statement)
+            else:
+                console.push('\n')
+    return fake_out.getvalue(), fake_err.getvalue()
 
 
 def eval_(to_eval, namespace=None):
@@ -29,29 +29,16 @@ def eval_(to_eval, namespace=None):
         namespace = {}
     else:
         namespace = eval(namespace)
-
-    namespace['__builtins__'] = []
-    console = code.InteractiveConsole(locals=namespace)
-    with AcquireStdOutAndStdErr():
-        for function in namespace.get("functions", []):
-            for statement in function.split("\\n"):
-                console.push(statement.encode("utf-8"))
-        for statement in to_eval.split("\n"):
-            if statement:
-                console.push(statement)
-            else:
-                console.push('\n')
-
-    out = AcquireStdOutAndStdErr.fake_stdout.getvalue()
-    error = AcquireStdOutAndStdErr.fake_stderr.getvalue()
-
-    # remove functions and classes in namespace
+    namespace['__builtins__'] = {'print': print}
+    out, errors = _get_console_out(to_eval, namespace)
+    new_namespace = {}
     for key, value in namespace.items():
-        if isinstance(value, types.FunctionType) or isinstance(value, class_types):
-            del namespace[key]
-    return {'out': out, 'namespace': json.dumps(namespace), 'error': error}
+        if key != "__builtins__":
+            if not (isinstance(value, types.FunctionType) or isinstance(value, class_types)):
+                new_namespace[key] = value
+    return {'out': out, 'namespace': json.dumps(new_namespace), 'error': errors}
 
 if __name__ == "__main__":
     to_eval = sys.argv[1]
     namespace = sys.argv[2]
-    print(json.dumps(eval_(to_eval, namespace=namespace)))
+    json.dump(eval_(to_eval, namespace=namespace), sys.stdout)
