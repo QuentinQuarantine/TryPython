@@ -1,7 +1,7 @@
 var python_console_rest_api = (function() {
 
 
-    // private 
+    // private
     var _getCsrfToken = function(name) {
         var csrf_element = document.getElementsByName(name)[0];
         return csrf_element.value;
@@ -21,7 +21,7 @@ var python_console_rest_api = (function() {
         });
     };
 
-    // public 
+    // public
     var api = {};
 
     api.init = function(jquery) {
@@ -41,7 +41,7 @@ var python_console_rest_api = (function() {
     };
 
     api.getStep = function(step, callback){
-        _build_json_ajax_call({'step': step}, '/step', callback);
+        _build_json_ajax_call({'step': step}, '/get_step', callback);
     };
 
     return api;

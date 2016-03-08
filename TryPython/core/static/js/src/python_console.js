@@ -22,18 +22,16 @@ var py_console = (function() {
     api.statements = '';
     api.console_options = {};
 
-    api.get_step = function(){
-        var tutorial_content_element = api.jquery(".tutorial-content");
-
-        if (api.current_step > 0){
-            tutorial_content_element.empty().fadeOut("slow");
+    api.get_step = function(url){
+        api.current_step = utils.parse_step_from_url(url);
+        if (api.current_step){
+          var tutorial_content_element = api.jquery(".tutorial-content");
+          tutorial_content_element.empty().fadeOut("slow");
+          api.rest_api.getStep(api.current_step, function(result){
+             tutorial_content_element.append("<h2>" + result.title + "</h2>").fadeIn('slow');
+             tutorial_content_element.append("<p>" + result.content + "</p>").fadeIn('slow');
+          });
         }
-        api.current_step += 1;
-        api.rest_api.getStep(api.current_step, function(result){
-           tutorial_content_element.append("<h2>" + result.title + "</h2>").fadeIn('slow'); 
-           tutorial_content_element.append("<p>" + result.content + "</p>").fadeIn('slow');
-        });
-        
     };
 
     api.console_options.commandValidate = function(line) {
@@ -56,7 +54,7 @@ var py_console = (function() {
             return '';
         }
         if (line.trim() === 'next'){
-            api.get_step();
+            api.get_step(window.location.href);
             api.console.reset();
             return;
         }
@@ -105,7 +103,7 @@ var py_console = (function() {
         });
     };
 
-    api.init = function(jquery, python_console_rest_api) {
+    api.init = function(jquery, python_console_rest_api, window, utils) {
         api.jquery = jquery;
         api.rest_api = python_console_rest_api;
         python_console_rest_api.init(jquery);
@@ -116,7 +114,7 @@ var py_console = (function() {
             api.jquery('body').append(console_element);
 
             api.console = console_element.console(api.console_options);
-            api.get_step();
+            api.get_step(window.location.href);
         });
     };
 
