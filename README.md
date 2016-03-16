@@ -11,6 +11,13 @@
 
 ## Installing <a name="installing"></a>
 
+* Clone this repository
+
+```sh
+ git clone git@github.com:IuryAlves/TryPython.git
+ cd TryPython
+ ```
+
 * Install python 2.x on your system
 *  Install git
 * Install nodejs
@@ -33,12 +40,6 @@
 ```sh
     bower install
 ```
-* Clone this repository
-
-```sh
- git clone git@github.com:IuryAlves/TryPython.git
- cd TryPython
- ```
 
 * Install python virtualenv:
 
@@ -71,7 +72,7 @@ pip install -r requirements/requirements.txt
 
 * Run the migrations:
 
-```  sh     
+```sh     
 TryPython/manage.py migrate
 ```
 
