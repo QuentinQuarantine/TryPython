@@ -5,11 +5,6 @@
 #### Install the dev dependencies
 
 
-* Install nodejs
-* Install npm dependencies
- 
-        npm install  # on project root path
-
 * Install python dev dependencies
 
         pip install -r requirements/dev_requirements.txt

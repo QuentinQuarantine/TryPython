@@ -16,25 +16,12 @@
       </div>
     </div>
   </nav>
-  <!-- <div class="trap ribbon-wrap right">
-    <div class="trap-ribbon">
-      <a href="https://github.com/IuryAlves/TryPython" target="_blank">
-        Fork me on github
-      </a>
-    </div>
-  </div> -->
   {% csrf_token %}
   <div class="console">
     <div class="span6" id="console">
     </div>
   </div>
   <div class="tutorial-content"></div>
-
-  <script type="text/javascript" src="{% static "js/lib/jquery.min.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/lib/jquery.console.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/src/utils.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/src/python_console_rest_api.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/src/python_console.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/src/main.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/dist/scripts.js" %}"></script>
 </body>
 </html>

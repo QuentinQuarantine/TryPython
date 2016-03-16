@@ -13,6 +13,26 @@
 
 * Install python 2.x on your system
 *  Install git
+* Install nodejs
+* Make sure that npm is installed, open a terminal and type:
+```sh
+    npm --version
+```
+
+* Install npm dependencies
+```sh
+    npm install
+```
+
+* Install bower
+```sh
+    sudo npm install -g bower
+```
+
+* Install bower dependencies
+```sh
+    bower install
+```
 * Clone this repository
 
 ```sh
@@ -33,7 +53,7 @@ virtualenv venv
 source venv/bin/activate
 ```
 
-* Install project dependencies:
+* Install project backend dependencies:
 
 ```sh
 pip install -r requirements/requirements.txt
@@ -66,7 +86,7 @@ TryPython//manage.py loaddata steps.json
 * Run
 
 ```sh       
- TryPython//manage.py runserver 8000
+ TryPython//manage.py grunt_server
  ```
 
 
