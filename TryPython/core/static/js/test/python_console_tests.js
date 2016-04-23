@@ -76,7 +76,8 @@ describe("Python Console Tests", function() {
         spyOn(py_console.console, 'reset').and.callThrough();
         py_console.console_options.commandHandle('1+1', report);
 
-        expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('1+1', jasmine.any(Function));
+        expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('1+1',
+             jasmine.any(Function), jasmine.any(Function));
     });
 
     it("py_console.console.commandHandle should insert \\n after :", function() {
@@ -96,7 +97,8 @@ describe("Python Console Tests", function() {
 
         expect(py_console.statements).toEqual('');
         expect(py_console.console.continuedPrompt).toBe(false);
-        expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('for x in (1, 2, 3):\n  print x\n', jasmine.any(Function));
+        expect(python_console_rest_api.sendPythonExpression).toHaveBeenCalledWith('for x in (1, 2, 3):\n  print x\n',
+             jasmine.any(Function), jasmine.any(Function));
     });
 
     it("if the input is empty commandHandle should not be called", function(){

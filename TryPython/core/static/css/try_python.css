@@ -1,3 +1,11 @@
+
+.message {
+  width: 50%;
+  position: absolute !important;
+  left: 22%;
+  top: 4%;
+}
+
 body {
   font-family: 'Merriweather';
 }

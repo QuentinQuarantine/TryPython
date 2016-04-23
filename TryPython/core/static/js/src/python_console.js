@@ -100,6 +100,13 @@ var py_console = (function() {
                 }]);
                 return;
             }
+        }, function(){
+            alerts.show_error_alert(
+                "Ops! Algo deu errado.", 
+                "Se o problema persistir entre em contato conosco por" + 
+                "<a href='https://github.com/IuryAlves/TryPython/issues/new' " + 
+                "target='_blank'> aqui.</a>");
+            report();
         });
     };
 

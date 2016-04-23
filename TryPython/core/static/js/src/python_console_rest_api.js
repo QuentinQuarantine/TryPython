@@ -7,7 +7,7 @@ var python_console_rest_api = (function() {
         return csrf_element.value;
     };
 
-    var _build_json_ajax_call = function(params, url, callback){
+    var _create_ajax = function(params, url, success, error){
         if (!params){
             params  = {};
         }
@@ -17,7 +17,8 @@ var python_console_rest_api = (function() {
             dataType: 'json',
             type: 'POST',
             data: params,
-            success: callback
+            success: success,
+            error: error
         });
     };
 
@@ -36,12 +37,12 @@ var python_console_rest_api = (function() {
         });
     };
 
-    api.sendPythonExpression = function(expression, callback) {
-        _build_json_ajax_call({'toEval': expression}, '/eval', callback);
+    api.sendPythonExpression = function(expression, success, error) {
+        _create_ajax({'toEval': expression}, '/eval', success, error);
     };
 
     api.getStep = function(step, callback){
-        _build_json_ajax_call({'step': step}, '/get_step', callback);
+        _create_ajax({'step': step}, '/get_step', callback);
     };
 
     return api;
