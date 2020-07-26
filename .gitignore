@@ -1,5 +1,4 @@
 node_modules
-bower_components
 .idea
 **/dist
 *.py[co]
@@ -9,3 +8,4 @@ htmlcov
 .coverage
 .env
 *.sqlite3
+yarn-error.log

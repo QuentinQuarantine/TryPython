@@ -1,101 +1,93 @@
-# Try Python [![Build Status](https://travis-ci.org/IuryAlves/TryPython.svg?branch=master)](https://travis-ci.org/IuryAlves/TryPython) [![Coverage Status](https://coveralls.io/repos/IuryAlves/TryPython/badge.svg?branch=master&service=github)](https://coveralls.io/github/IuryAlves/TryPython?branch=master)  [![For the badge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com/images/badges/built-with-love.svg)
-
+# Try Python [![Build Status](https://travis-ci.org/IuryAlves/TryPython.svg?branch=master)](https://travis-ci.org/IuryAlves/TryPython) [![Coverage Status](https://coveralls.io/repos/IuryAlves/TryPython/badge.svg?branch=master&service=github)](https://coveralls.io/github/IuryAlves/TryPython?branch=master) [![For the badge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com/images/badges/built-with-love.svg)
 
 ![try-python](try-python.gif)
+
 ##### The goal of this project is to teach python to new people. This project is a python version from [try-haskell](tryhaskell.org)
 
 # Table of contents
+
 1. [Installing](#installing)
 2. [running](#running)
 3. [Contributing](#contributing)
 
 ## Installing <a name="installing"></a>
 
-* Clone this repository
+- Clone this repository
 
 ```sh
  git clone git@github.com:IuryAlves/TryPython.git
  cd TryPython
- ```
-
-* Install python 2.x on your system
-*  Install git
-* Install nodejs
-* Make sure that npm is installed, open a terminal and type:
-```sh
-    npm --version
 ```
 
-* Install npm dependencies
+- Install python 2.x on your system
+- Install git
+- Install nodejs
+- Make sure that `yarn` is installed, open a terminal and type:
+
 ```sh
-    npm install
+    yarn -v
 ```
 
-* Install bower
+- Install npm dependencies
+
 ```sh
-    sudo npm install -g bower
+    yarn
 ```
 
-* Install bower dependencies
+- Install python virtualenv:
+
 ```sh
-    bower install
-```
-
-* Install python virtualenv:
-
-``` sh
 sudo pip install virtualenv
 ```
 
-* Create a virtualenv:
+- Create a virtualenv:
 
 ```sh
 virtualenv venv
 source venv/bin/activate
 ```
 
-* Install project backend dependencies:
+- Install project backend dependencies:
 
 ```sh
 pip install -r requirements/requirements.txt
 ```
 
-* Generate a DJANGO_SECRET_KEY [here](http://www.miniwebtool.com/django-secret-key-generator/)
+- Generate a DJANGO_SECRET_KEY [here](http://www.miniwebtool.com/django-secret-key-generator/)
 
-* Create a `.env` file in the home of the project and insert this lines
+- Create a `.env` file in the home of the project and insert this lines
 
       DEBUG=True
 
       DJANGO_SECRET_KEY=[the-secret-key-that-you-gerenate]
 
-    **Then save and close the file.**
+  **Then save and close the file.**
 
-* Run the migrations:
+- Run the migrations:
 
-```sh     
+```sh
 TryPython/manage.py migrate
 ```
 
-* Load the fixtures of the project
+- Load the fixtures of the project
 
 ```sh
-TryPython//manage.py loaddata steps.json
+TryPython/manage.py loaddata steps.json
 ```
 
 ## Running <a name="running"></a>
 
-* Run
+- Run
 
-```sh       
- TryPython//manage.py grunt_server
- ```
-
+```sh
+ TryPython/manage.py rollup_server
+```
 
 Now, just access [localhost:8000](localhost:8080)
 
 ## Contributing <a name="contributing"></a>
 
-* See the contributing [guide](CONTRIBUTING.md)
+- See the contributing [guide](CONTRIBUTING.md)
 
-* This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
-* This project uses [jquery.console](https://github.com/chrisdone/jquery-console)
+- This project uses TravisCI [TryPython on Travis](https://travis-ci.org/IuryAlves/TryPython)
+- This project uses [jquery.console](https://github.com/chrisdone/jquery-console)

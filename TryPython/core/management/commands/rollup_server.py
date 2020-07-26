@@ -11,23 +11,23 @@ from django.contrib.staticfiles.management.commands.runserver import Command \
 class Command(StaticfilesRunserverCommand):
 
     def inner_run(self, *args, **options):
-        self.start_grunt()
+        self.start_rollup()
         return super(Command, self).inner_run(*args, **options)
 
-    def start_grunt(self):
-        self.stdout.write('>>> Starting grunt')
-        self.grunt_process = subprocess.Popen(
-            ['grunt --gruntfile={0}/Gruntfile.js --base=.'.format(settings.PROJECT_DIR)],
+    def start_rollup(self):
+        self.stdout.write('>>> Starting rollup')
+        self.rollup_process = subprocess.Popen(
+            ['yarn watch'],
             shell=True,
             stdin=subprocess.PIPE,
             stdout=self.stdout,
             stderr=self.stderr,
         )
 
-        self.stdout.write('>>> Grunt process on pid {0}'.format(self.grunt_process.pid))
+        self.stdout.write('>>> Rollup process on pid {0}'.format(self.rollup_process.pid))
 
-        def kill_grunt_process(pid):
-            self.stdout.write('>>> Closing grunt process')
+        def kill_rollup_process(pid):
+            self.stdout.write('>>> Closing rollup process')
             os.kill(pid, signal.SIGTERM)
 
-        atexit.register(kill_grunt_process, self.grunt_process.pid)
+        atexit.register(kill_rollup_process, self.rollup_process.pid)
